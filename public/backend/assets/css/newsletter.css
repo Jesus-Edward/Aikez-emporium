@@ -1,0 +1,121 @@
+body {
+    margin: 0;
+    box-sizing: border-box;
+    background-color: rgb(228, 222, 222)
+}
+
+#first_section {
+    min-height: 200px;
+    background-color: orange;
+    padding-top: 10px;
+}
+
+.first_para {
+    margin: 10px 20px;
+    text-decoration: underline;
+    font-size: 1.5rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
+.logo {
+    margin: 10px 20px;
+}
+
+#second_section {
+    display: flex;
+    justify-content: space-between;
+    min-height: 200px
+}
+
+.receptionist {
+    height: 30rem;
+    width: 30rem;
+    border-top: 20px solid red;
+    border-left: 20px solid red;
+}
+
+.header_one {
+    display: flex;
+    justify-content: center;
+    font-weight: bolder;
+    font-size: 32px;
+    margin-top: -10px
+}
+
+.second_para {
+    overflow-wrap: break-word;
+    margin-top: -50px;
+    line-height: 1.5
+}
+
+.this_div {
+    margin-left: 20px
+}
+
+.second_span {
+    color: orange
+}
+
+.first_span {
+    color: red
+}
+
+.last_section {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.last_h1 {
+    font-style: italic;
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-top: 15px
+}
+
+.links {
+    height: 100px;
+    width: 100px;
+    border-radius: 100%;
+    background-color: blue;
+    padding: 10px;
+    color: white;
+    font-weight: bolder
+}
+
+.unsubscribe {
+    font-style: italic;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
+}
+
+@media screen and (max-width: 480px){
+    body {
+        width: 100%;
+    }
+    #second_section {
+        display: block;
+        min-height: 100px;
+    }
+    #first_section {
+        width: 100%;
+    }
+
+    .receptionist {
+        height: 300px;
+        width: 368px;
+        overflow: hidden;
+        margin-top: -10px;
+    }
+
+    .last_section {
+        width: 100%;
+        display: block;
+    }
+
+    .last_h1 {
+        margin-left: 5px;
+    }
+
+    .links {
+        margin-left: 5px;
+    }
+}
