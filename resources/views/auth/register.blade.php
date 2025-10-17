@@ -1,4 +1,4 @@
-<x-guest-layout>
+{{-- <x-guest-layout>
     <form method="POST" action="{{ route('register') }}">
         @csrf
 
@@ -49,4 +49,119 @@
             </x-primary-button>
         </div>
     </form>
-</x-guest-layout>
+</x-guest-layout> --}}
+
+@extends('frontend.layouts.master')
+@section('frontend')
+            <!-- Inner Banner -->
+        <div class="inner-banner inner-bg12">
+            <div class="container">
+                <div class="inner-title">
+                    <ul>
+                        <li>
+                            <a href="index.html">Home</a>
+                        </li>
+                        <li><i class='bx bx-chevron-right'></i></li>
+                        <li>Register</li>
+                    </ul>
+                    <h3>Register</h3>
+                </div>
+            </div>
+        </div>
+        <!-- Inner Banner End -->
+
+                <style>
+            .login-user {
+                position: absolute;
+                top: -35px;
+                left: 45%;
+                z-index: 100;
+            }
+
+            .login-icon {
+                width: 70px;
+                height: 70px;
+            }
+
+            @media (max-width: 768px) {
+                .login-user {
+                    left: 40% !important;
+                }
+            }
+        </style>
+
+        <!-- Sign Up Area -->
+        <div class="sign-up-area pt-100 pb-70">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="user-all-form">
+                            <div class="contact-form" style="position: relative">
+                                <div class="login-user">
+                                    <img src="{{ asset('frontend/assets/image/user-avatar.png') }}" class='login-icon' >
+                                </div>
+                                <div class="section-title text-center">
+                                    <span class="sp-color">Register</span>
+                                    <h2>Register with Us Today!</h2>
+                                </div>
+                                <form id="" action="{{ route('register') }}" method="POST">
+                                    @csrf
+                                    <div class="row">
+                                        <div class="col-lg-12 ">
+                                            <div class="form-group">
+                                                <input type="text" name="name" value="{{ old('name') }}" id="name" class="form-control" placeholder="Name" autofocus>
+                                                @error('name')
+                                                    <small class="tex-danger">{{ $message }}</small>
+                                                @enderror
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-12">
+                                            <div class="form-group">
+                                                <input type="email" name="email" value="{{ old('email') }}" id="email" class="form-control" placeholder="Email">
+                                                @error('email')
+                                                    <small class="tex-danger">{{ $message }}</small>
+                                                @enderror
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <input class="form-control" type="password" name="password" placeholder="Password">
+                                                @error('password')
+                                                    <small class="tex-danger">{{ $message }}</small>
+                                                @enderror
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <input class="form-control" type="password" name="password_confirmation" placeholder="Confirm Password">
+                                            </div>
+                                            @error('password_confirmation')
+                                                <small class="tex-danger">{{ $message }}</small>
+                                            @enderror
+                                        </div>
+
+                                        <div class="col-lg-12 col-md-12 text-center">
+                                            <button type="submit" class="default-btn btn-bg-two border-radius-5">
+                                                Register
+                                            </button>
+                                        </div>
+
+                                        <div class="col-12">
+                                            <p class="account-desc">
+                                                Already have an account?
+                                                <a href="{{ route('login') }}">Login</a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Sign Up Area End -->
+@endsection

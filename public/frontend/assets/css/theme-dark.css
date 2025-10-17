@@ -99,6 +99,26 @@
   color: #ffffff;
 }
 
+.theme-dark .notch {
+  background: #1d1d1d !important;
+}
+
+.theme-dark .card-header::before {
+  background: #1d1d1d !important;
+}
+
+.theme-dark .profile-img::after {
+    background: #252525 !important;
+}
+
+.theme-dark .service-side-bar a.active::after {
+    background: #252525 !important;
+}
+
+.theme-dark .notch-right {
+  background: #1d1d1d !important;
+}
+
 .theme-dark .section-bg {
   background-color: #252525;
 }

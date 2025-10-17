@@ -35,28 +35,23 @@ class BannerController extends Controller
     {
         $request->validate([
             'title' => 'required|string|max:255',
+            'name' => 'nullable|string|max:255',
+            'category' => 'nullable|string|max:255',
             'description' => 'required|string|max:1000',
             'button_link' => 'required|string|max:1000',
             'status' => 'boolean|required',
             'image' => 'required|image|mimes:jpg,png|max:5120',
-            'image1' => 'required|image|mimes:jpg,png|max:5120',
-            'image2' => 'required|image|mimes:jpg,png|max:5120',
-            'image3' => 'required|image|mimes:jpg,png|max:5120',
         ]);
 
         $banner = new Banner();
         $imagePath = $this->uploadImage($request, 'image');
-        $imagePath1 = $this->uploadImage($request, 'image1');
-        $imagePath2 = $this->uploadImage($request, 'image2');
-        $imagePath3 = $this->uploadImage($request, 'image3');
         $banner->title = $request->title;
+        $banner->name = $request->name;
+        $banner->category = $request->category;
         $banner->description = $request->description;
         $banner->button_link = $request->button_link;
         $banner->status = $request->status;
         $banner->image = $imagePath;
-        $banner->image1 = $imagePath1;
-        $banner->image2 = $imagePath2;
-        $banner->image3 = $imagePath3;
         $banner->save();
 
         $notification = array(
@@ -90,28 +85,23 @@ class BannerController extends Controller
     {
         $request->validate([
             'title' => 'required|string|max:255',
+            'name' => 'nullable|string|max:255',
+            'category' => 'nullable|string|max:255',
             'description' => 'required|string|max:1000',
             'button_link' => 'required|string|max:1000',
             'status' => 'boolean|required',
             'image' => 'nullable|image|mimes:jpg,png|max:5120',
-            'image1' => 'nullable|image|mimes:jpg,png|max:5120',
-            'image2' => 'nullable|image|mimes:jpg,png|max:5120',
-            'image3' => 'nullable|image|mimes:jpg,png|max:5120',
         ]);
 
         $banner = Banner::findOrFail($id);
         $imagePath = $this->uploadImage($request, 'image', $banner->image);
-        $imagePath1 = $this->uploadImage($request, 'image1', $banner->image1);
-        $imagePath2 = $this->uploadImage($request, 'image2', $banner->image2);
-        $imagePath3 = $this->uploadImage($request, 'image3', $banner->image3);
         $banner->title = $request->title;
+        $banner->name = $request->name;
+        $banner->category = $request->category;
         $banner->description = $request->description;
         $banner->button_link = $request->button_link;
         $banner->status = $request->status;
         $banner->image = !empty($imagePath) ? $imagePath : $banner->image;
-        $banner->image1 = !empty($imagePath1) ? $imagePath1 : $banner->image1;
-        $banner->image2 = !empty($imagePath2) ? $imagePath2 : $banner->image2;
-        $banner->image3 = !empty($imagePath3) ? $imagePath3 : $banner->image3;
         $banner->update();
 
         $notification = array(

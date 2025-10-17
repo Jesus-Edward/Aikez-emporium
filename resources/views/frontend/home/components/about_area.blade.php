@@ -1,4 +1,4 @@
-<div class="about-area pt-100 pb-70">
+<div class="about-area">
     <div class="container-fluid">
         <div class="row align-items-center">
             <div class="col-lg-6">

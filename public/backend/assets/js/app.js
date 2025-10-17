@@ -9,6 +9,23 @@ $(function() {
         });
     }
 
+    // Summernote Initialization
+    if (jQuery().summernote) {
+        $(".summernote").summernote({
+            dialogsInBody: true,
+            minHeight: 250,
+        });
+        $(".summernote-simple").summernote({
+            dialogsInBody: true,
+            minHeight: 150,
+            toolbar: [
+                ["style", ["bold", "italic", "underline", "clear"]],
+                ["font", ["strikethrough"]],
+                ["para", ["paragraph"]],
+            ],
+        });
+    }
+
     // new PerfectScrollbar(".header-message-list"),
     new PerfectScrollbar(".header-notifications-list"),
         $(".mobile-search-icon").on("click", function () {

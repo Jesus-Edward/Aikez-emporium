@@ -74,30 +74,85 @@
         },
     });
 
-    // Testimonials Slider
-    $(".testimonials-slider").owlCarousel({
+
+    $(".featured-container").owlCarousel({
         loop: true,
-        margin: 30,
-        nav: true,
-        dots: false,
         autoplay: true,
+        autoplayTimeout: 6000,
+        margin: 10,
+        nav: true,
+        dots: true,
         autoplayHoverPause: true,
-        responsive: {
-            0: {
-                items: 1,
-            },
-            768: {
-                items: 2,
-            },
-            1000: {
-                items: 3,
-            },
-        },
         navText: [
             "<i class='bx bx-chevron-left'></i>",
             "<i class='bx bx-chevron-right'></i>",
         ],
+        responsive: {
+            0: {
+                items: 1,
+                nav: false,
+            },
+            600: {
+                items: 1,
+                nav: true,
+            },
+            768: {
+                items: 3,
+            },
+        },
     });
+
+    $(".testimonials-container").owlCarousel({
+        loop: true,
+        autoplay: true,
+        autoplayTimeout: 6000,
+        margin: 10,
+        nav: true,
+        dots: true,
+        autoplayHoverPause: true,
+        navText: [
+            "<i class='bx bx-chevron-left'></i>",
+            "<i class='bx bx-chevron-right'></i>",
+        ],
+        responsive: {
+            0: {
+                items: 1,
+                nav: false,
+            },
+            600: {
+                items: 1,
+                nav: true,
+            },
+            768: {
+                items: 3,
+            },
+        },
+    });
+
+    // Testimonials Slider
+    // $(".testimonials-slider").owlCarousel({
+    //     loop: true,
+    //     margin: 30,
+    //     nav: true,
+    //     dots: false,
+    //     autoplayHoverPause: true,
+    //     autoplay: true,
+    //     responsive: {
+    //         0: {
+    //             items: 1,
+    //         },
+    //         768: {
+    //             items: 2,
+    //         },
+    //         1000: {
+    //             items: 3,
+    //         },
+    //     },
+    //     navText: [
+    //         "<i class='bx bx-chevron-left'></i>",
+    //         "<i class='bx bx-chevron-right'></i>",
+    //     ],
+    // });
 
     // Testimonials Slider Two
     $(".testimonials-slider-two").owlCarousel({
@@ -428,3 +483,36 @@ function toggleTheme() {
 if (jQuery().select2) {
     $(".select2").select2();
 }
+
+//*==========ISOTOPE==============
+var $filtered = $(".filtered").isotope({
+    layoutMode: "fitRows",
+});
+
+$(".category_filter").on("click", "button", function () {
+    var filterValue = $(this).attr("data-filter");
+    $filtered.isotope({
+        filter: filterValue,
+    });
+});
+
+// $(".button-click").trigger("click");
+
+$(".category_filter button").on("click", function (event) {
+    $(this).siblings(".active").removeClass("active");
+    $(this).addClass("active");
+    event.preventDefault();
+});
+
+ //*==========PERSONAL INFO==========
+$(".dash_info_btn").click(function () {
+    $(".fp_dash_personal_info").toggleClass("show");
+});
+
+// Selectric
+// if (jQuery().selectric) {
+//     $(".selectric").selectric({
+//         disableOnMobile: false,
+//         nativeOnMobile: false,
+//     });
+// }

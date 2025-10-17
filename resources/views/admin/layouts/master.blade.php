@@ -14,9 +14,11 @@
     <link href="{{ asset('backend/assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css') }}" rel="stylesheet" />
     <link href="{{ asset('backend/assets/plugins/metismenu/css/metisMenu.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('modules/jquery-selectric/selectric.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('modules/summernote/summernote-bs4.css') }}">
 
       <!-- Flaticon CSS -->
     <link rel="stylesheet" href="{{ asset('frontend/assets/fonts/flaticon.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/boxicons.min.css') }}">
 
     <!-- loader-->
     <link href="{{ asset('backend/assets/css/pace.min.css') }}" rel="stylesheet" />
@@ -36,6 +38,8 @@
     <link href="{{ asset('backend/assets/plugins/datatable/css/dataTables.bootstrap5.min.css') }}" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.5/dist/sweetalert2.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <title>Aikez Emp - Admin Dashboard</title>
 
     <style>
@@ -106,6 +110,7 @@
     {{-- <script src="{{ asset('backend/assets/js/index.js') }}"></script> --}}
     <script src="{{ asset('modules/jquery-selectric/jquery.selectric.min.js') }}"></script>
     <script src="{{ asset('modules/upload-preview/assets/js/jquery.uploadPreview.min.js') }}"></script>
+    <script src="{{ asset('modules/summernote/summernote-bs4.js') }}"></script>
 
     <!--app JS-->
     <script src="{{ asset('backend/assets/js/app.js') }}"></script>
@@ -114,6 +119,7 @@
     <script src="{{ asset('backend/assets/plugins/datatable/js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('backend/assets/plugins/datatable/js/dataTables.bootstrap5.min.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.5/dist/sweetalert2.all.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/js/all.min.js" integrity="sha512-6BTOlkauINO65nLhXhthZMtepgJSghyimIalb+crKRPhvhmsCdnIuGcVbR5/aQY2A+260iC1OPy1oCdB6pSSwQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     {{-- <script src="https://cdn.datatables.net/2.0.8/js/dataTables.min.js"></script> --}}
     {{-- <script src="https://cdn.datatables.net/2.0.8/js/dataTables.bootstrap4.min.js"></script> --}}
@@ -199,10 +205,16 @@
                             },
                             success: function(response) {
                                 let table = response.table;
-                                $(`${table}`).DataTable().ajax.reload();
+
                                 if (response.status === 'success') {
                                     toastr.success(response.message, );
-                                    // window.location.reload();
+                                    if(table) {
+
+                                        $(`${table}`).DataTable().ajax.reload();
+                                    }
+                                    else {
+                                        window.location.reload();
+                                    }
                                 } else {
                                     if (response.status === 'error') {
                                         toastr.error(response.message);

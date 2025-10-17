@@ -29,7 +29,7 @@ class ServiceDataTable extends DataTable
                 return $edit . $delete;
             })
             ->addColumn('icon', function ($query) {
-                return '<i style=font-size:30px class="'.$query->icon.'" >';
+                return '<i style=font-size:30px class="' . $query->icon . '" >';
             })
             ->addColumn('status', function ($query) {
                 if ($query->status === 1) {

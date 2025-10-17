@@ -2,17 +2,17 @@
 @section('admin')
     <div class="page-content">
         <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-                <div class="breadcrumb-title pe-3">Banner Section</div>
-                <div class="ps-3">
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb mb-0 p-0">
-                            <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}"><i class="bx bx-home-alt"></i></a>
-                            </li>
-                            <li class="breadcrumb-item active" aria-current="page">Update Banner</li>
-                        </ol>
-                    </nav>
-                </div>
+            <div class="breadcrumb-title pe-3">Banner Section</div>
+            <div class="ps-3">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-0 p-0">
+                        <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}"><i class="bx bx-home-alt"></i></a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">Update Banner</li>
+                    </ol>
+                </nav>
             </div>
+        </div>
         <div class="row">
             <div class="col-12">
                 <hr />
@@ -31,15 +31,37 @@
                     <hr />
 
                     <div class="card-body">
-                        <form action="{{ route('admin.banner.update', $banner->id) }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('admin.banner.update', $banner->id) }}" method="POST"
+                            enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
                             <div class="row">
                                 <div class="col-md-6 mb-2">
                                     <div class="form-group">
                                         <label for="" class="form-label">Banner Title</label>
-                                        <input type="text" class="form-control" name="title" value="{{ $banner->title }}">
+                                        <input type="text" class="form-control" name="title"
+                                            value="{{ $banner->title }}">
                                         @error('title')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-2">
+                                    <div class="form-group">
+                                        <label for="" class="form-label">Name</label>
+                                        <input type="text" class="form-control" name="name"
+                                            value="{{ $banner->name }}">
+                                        @error('name')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-2">
+                                    <div class="form-group">
+                                        <label for="" class="form-label">Category</label>
+                                        <input type="text" class="form-control" name="category"
+                                            value="{{ $banner->category }}">
+                                        @error('category')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
                                     </div>
@@ -48,7 +70,8 @@
                                 <div class="col-md-6 mb-2">
                                     <div class="form-group">
                                         <label for="" class="form-label">Button Link</label>
-                                        <input type="text" class="form-control" name="button_link" value="{{ $banner->button_link }}">
+                                        <input type="text" class="form-control" name="button_link"
+                                            value="{{ $banner->button_link }}">
                                         @error('button_link')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
@@ -77,60 +100,22 @@
                                     </div>
 
                                     <div class="mt-2">
-                                        <img src="{{ asset($banner->image) }}" id="showImage" class="" width="80">
-                                    </div>
-                                </div>
-                                <div class="col-md-6 mb-2">
-                                    <div class="form-group">
-                                        <label for="" class="form-label">Banner Image 1</label>
-                                        <input type="file" class="form-control" name="image1" id="image1">
-                                        @error('image1')
-                                            <small class="text-danger">{{ $message }}</small>
-                                        @enderror
-                                    </div>
-
-                                    <div class="mt-2">
-                                        <img src="{{ asset($banner->image1) }}" id="showImage1" class="" width="80">
-                                    </div>
-                                </div>
-                                <div class="col-md-6 mb-2">
-                                    <div class="form-group">
-                                        <label for="" class="form-label">Banner Image 2</label>
-                                        <input type="file" class="form-control" name="image2" id="image2">
-                                        @error('image2')
-                                            <small class="text-danger">{{ $message }}</small>
-                                        @enderror
-                                    </div>
-
-                                    <div class="mt-2">
-                                        <img src="{{ asset($banner->image2) }}" id="showImage2" class="" width="80">
-                                    </div>
-                                </div>
-                                <div class="col-md-6 mb-2">
-                                    <div class="form-group">
-                                        <label for="" class="form-label">Banner Image 3</label>
-                                        <input type="file" class="form-control" name="image3" id="image3">
-                                        @error('image3')
-                                            <small class="text-danger">{{ $message }}</small>
-                                        @enderror
-                                    </div>
-
-                                    <div class="mt-2">
-                                        <img src="{{ asset($banner->image3) }}" id="showImage3" class="" width="80">
+                                        <img src="{{ asset($banner->image) }}" id="showImage" class=""
+                                            width="80">
                                     </div>
                                 </div>
                                 <div class="col-md-6 mb-2">
                                     <div class="form-group">
                                         <label for="" class="form-label">Banner Image</label>
                                         <div class="selectric-wrapper selectric-form-control">
-                                                <select name="status" id="" class="form-control selectric">
-                                                    <option value="1" @selected($banner->status === 1)>Active</option>
-                                                    <option value="0" @selected($banner->status === 0)>Inactive</option>
-                                                </select>
-                                            </div>
-                                            @error('status')
-                                                <small class="text-danger">{{ $message }}</small>
-                                            @enderror
+                                            <select name="status" id="" class="form-control selectric">
+                                                <option value="1" @selected($banner->status === 1)>Active</option>
+                                                <option value="0" @selected($banner->status === 0)>Inactive</option>
+                                            </select>
+                                        </div>
+                                        @error('status')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
                                     </div>
                                 </div>
                             </div>
@@ -149,27 +134,6 @@
                 var reader = new FileReader();
                 reader.onload = function(e) {
                     $("#showImage").attr("src", e.target.result);
-                }
-                reader.readAsDataURL(e.target.files[0])
-            });
-            $("#image1").change(function(e) {
-                var reader = new FileReader();
-                reader.onload = function(e) {
-                    $("#showImage1").attr("src", e.target.result);
-                }
-                reader.readAsDataURL(e.target.files[0])
-            });
-            $("#image2").change(function(e) {
-                var reader = new FileReader();
-                reader.onload = function(e) {
-                    $("#showImage2").attr("src", e.target.result);
-                }
-                reader.readAsDataURL(e.target.files[0])
-            });
-            $("#image3").change(function(e) {
-                var reader = new FileReader();
-                reader.onload = function(e) {
-                    $("#showImage3").attr("src", e.target.result);
                 }
                 reader.readAsDataURL(e.target.files[0])
             });

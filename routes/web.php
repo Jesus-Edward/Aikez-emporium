@@ -5,8 +5,19 @@ use App\Http\Controllers\Backend\AboutAreaController;
 use App\Http\Controllers\Backend\AdminAuthController;
 use App\Http\Controllers\Backend\AdminDashboardController;
 use App\Http\Controllers\Backend\BannerController;
+use App\Http\Controllers\Backend\BrandController;
+use App\Http\Controllers\Backend\CategoryController;
+use App\Http\Controllers\Backend\ContactController;
+use App\Http\Controllers\Backend\FAQAnswerController;
+use App\Http\Controllers\Backend\FAQQuestionController;
 use App\Http\Controllers\Backend\GeneralSettingsController;
+use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\ServiceController;
+use App\Http\Controllers\Backend\SizeController;
+use App\Http\Controllers\Backend\TeamController;
+use App\Http\Controllers\Backend\TermsAndConditionController;
+use App\Http\Controllers\Backend\TestimonialController;
+
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -37,15 +48,40 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
         Route::put('ability/{id}/update', [AbilityController::class, 'update'])->name('ability.update');
         Route::delete('ability/{id}/destroy', [AbilityController::class, 'destroy'])->name('ability.destroy');
         Route::put('ability-stat/store', [AbilityController::class, 'storeUpdate'])->name('ability-stat.store');
+        Route::resource('team', TeamController::class);
+        Route::resource('testimonial', TestimonialController::class);
+        Route::resource('faq', FAQQuestionController::class);
+        Route::resource('faq-answer', FAQAnswerController::class);
+        Route::get('contact/index', [ContactController::class, 'index'])->name('contact.index');
+        Route::put('contact/update', [ContactController::class, 'update'])->name('contact.update');
+        Route::get('t&c/index', [TermsAndConditionController::class, 'index'])->name('t&c.index');
+        Route::put('t&c/update', [TermsAndConditionController::class, 'update'])->name('t&c.update');
+        Route::resource('category', CategoryController::class);
+        Route::resource('brand', BrandController::class);
+        Route::resource('size', SizeController::class);
+        Route::resource('product', ProductController::class);
     });
 });
 
 Route::get('/', [FrontendController::class, 'index'])->name('frontend.index');
 
 Route::middleware('auth')->group(function () {
+    Route::get('/user/profile/dashboard', [ProfileController::class, 'profileDashboard'])->name('user.profile.dashboard');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::get('/contact', [FrontendController::class, 'contact'])->name('frontend.contact');
+Route::post('/contact/send/message', [FrontendController::class, 'contactMessage'])->name('frontend.contact.message');
+Route::get('/about', [FrontendController::class, 'about'])->name('frontend.about');
+Route::get('/faq', [FrontendController::class, 'faq'])->name('frontend.faq');
+Route::get('/team', [FrontendController::class, 'team'])->name('frontend.team');
+Route::get('/testimonial', [FrontendController::class, 'testimonial'])->name('frontend.testimonial');
+Route::get('/terms/conditions', [FrontendController::class, 'termsConditions'])->name('frontend.terms.conditions');
+Route::get('tiles/size', [FrontendController::class, 'productBySize'])->name('tiles.size');
+Route::get('tiles/category', [FrontendController::class, 'productByCategory'])->name('tiles.category');
+Route::get('/categories/{categoryId}/brands', [FrontendController::class, 'brandProductsPerBrand']);
+Route::get('/brands/{brandId}/products', [FrontendController::class, 'brandProducts']);
 
 require __DIR__.'/auth.php';

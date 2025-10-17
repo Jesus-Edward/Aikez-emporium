@@ -22,31 +22,28 @@ class AuthenticatedSessionController extends Controller
     /**
      * Handle an incoming authentication request.
      */
-    public function store(LoginRequest $request): RedirectResponse
+    public function store(LoginRequest $request)
     {
         $request->authenticate();
 
         $request->session()->regenerate();
 
-        $url = '';
-
-        if ($request->user()->role === 'admin') {
-            return redirect('/admin/dashboard');
-        } elseif ($request->user()->role === 'user') {
-            return redirect('/dashboard');
-        }
-
         $notification = array(
             'message' => 'Logged in successfully',
             'alert-type' => 'success'
         );
-        return redirect()->intended($url)->with($notification);
+
+        if ($request->user()->role === 'admin') {
+            return redirect('/admin/dashboard')->with($notification);
+        } elseif ($request->user()->role === 'user') {
+            return redirect('/user/profile/dashboard')->with($notification);
+        }
     }
 
     /**
      * Destroy an authenticated session.
      */
-    public function destroy(Request $request): RedirectResponse
+    public function destroy(Request $request)
     {
         Auth::guard('web')->logout();
 
@@ -58,6 +55,7 @@ class AuthenticatedSessionController extends Controller
             'message' => 'Logged out successfully',
             'alert-type' => 'success'
         );
-        return redirect('admin/login/page')->with($notification);
+
+        return redirect('/login')->with($notification);
     }
 }

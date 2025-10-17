@@ -1,0 +1,89 @@
+#offer-section {
+    background: inherit;
+    /* min-height: 500px; */
+}
+
+.offer-card {
+    width: 400px;
+    height: 400px;
+    margin: auto;
+    background: inherit;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18);
+    color: linear-gradient(180deg, #1f6a3f, #18522f);
+    position: relative;
+    border-radius: 8px;
+}
+
+.notch {
+    position: absolute;
+    bottom: 79px;
+    width: 24px;
+    height: 24px;
+    background: #fff;
+    left: 7px;
+    border-radius: 50%;
+    transition: background 0.3s;
+    z-index: 2;
+}
+
+.notch-right {
+        position: absolute;
+        bottom: 79px;
+        width: 24px;
+        height: 24px;
+        background: #fff;
+        right: 7px;
+        border-radius: 50%;
+        transition: background 0.3s;
+        z-index: 2;
+}
+
+.offer-card .inner {
+    position: absolute;
+    inset: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 8px;
+    font-weight: 600;
+    background: linear-gradient(180deg, #1f6a3f, #18522f);
+    border-radius: 8px;
+}
+
+.card-img {
+    width: inherit;
+        height: 364px
+}
+
+.c-img {
+    height: 290px;
+        width: 364px;
+}
+
+.offer-card .dotted {
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    top: 77%;
+    height: 1px;
+    border-top: 2px dotted rgba(255, 255, 255, 0.25);
+}
+
+.card-content {
+    position: absolute;
+    bottom: 80px;
+}
+
+@media (max-width: 768px) {
+    .card-img {
+        width: inherit;
+        height: 364px !important;
+        border-radius: 8px;
+    }
+
+    .offer-card {
+        margin-bottom: 20px !important;
+    }
+}

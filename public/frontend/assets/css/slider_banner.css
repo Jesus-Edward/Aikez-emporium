@@ -28,7 +28,7 @@ header a{
 } */
 /* carousel */
 .carousel {
-    height: 100vh;
+    min-height: 800px;
     /* margin-top: -50px; */
     width: inherit;
     overflow: hidden;
@@ -145,7 +145,7 @@ header a{
 }
 
 .des {
-    font-size: 14px;
+    font-size: 1rem;
 }
 
 /* arrows */
@@ -348,6 +348,7 @@ header a{
 @media screen and (max-width: 678px) {
     .carousel .list .item .content {
         padding-right: 0;
+        /* top: 50px !important; */
     }
 
     .carousel .list .item .content .title {

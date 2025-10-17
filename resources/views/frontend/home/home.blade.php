@@ -1,153 +1,138 @@
 @extends('frontend.layouts.master')
 @section('frontend')
     <!-- Sidebar Modal -->
-<div class="sidebar-modal">
-    <div class="sidebar-modal-inner">
-        <div class="sidebar-header">
-            <div class="sidebar-logo">
-                <img src="assets/img/logos/logo-2.png" class="sidebar-logo-one" alt="Image">
-                <img src="assets/img/logos/footer-logo2.png" class="sidebar-logo-two" alt="Image">
+    {{-- <div class="sidebar-modal">
+        <div class="sidebar-modal-inner">
+            <div class="sidebar-header">
+                <h3>Filter Tiles Collections</h3>
+                <span class="close-btn sidebar-modal-close-btn">
+                    <i class="bx bx-x"></i>
+                </span>
             </div>
 
-            <span class="close-btn sidebar-modal-close-btn">
-                <i class="bx bx-x"></i>
-            </span>
-        </div>
+            <style>
+                #sizeFilter.form-control {
+                    display: block !important;
+                }
 
-        <div class="sidebar-about">
-            <div class="title">
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                    incididunt ut tur incidunt ut labore et
-                </p>
+                .nice-select.form-control {
+                    display: none !important;
+                }
+                .filter-group {
+                    margin-bottom: 5px;
+                }
+
+                .form-check-input {
+                    margin-right: 4px !important;
+                    margin-top: 0.40rem !important;
+                }
+
+            </style>
+
+            <div class="filter-group">
+                <h5>Category</h5>
+                @foreach ($categories as $category)
+                    <label for="" class="form-check-label"><input type="checkbox" class="form-check-input" name="category[]" id="" value="{{ $category->id }}">{{ $category->name }}</label>
+                @endforeach
+            </div>
+
+            <div class="filter-group">
+                <h5>Brand</h5>
+                @foreach ($brands as $brand)
+                    <label for="" class="form-check-label"><input type="checkbox" class="form-check-input" name="brand[]" id="" value="{{ $brand->id }}">{{ $brand->name }}</label>
+                @endforeach
+            </div>
+
+            <div class="filter-group">
+                <h5>Finish</h5>
+                <label for="" class="form-check-label"><input type="checkbox" class="form-check-input" name="gloss" id="" value="gloss">Gloss</label>
+                <label for="" class="form-check-label"><input type="checkbox" class="form-check-input" name="matte" id="" value="matt">Matte</label>
+                <label for="" class="form-check-label"><input type="checkbox" class="form-check-input" name="satin" id="" value="satin">Satin</label>
+            </div>
+
+            <div class="filter-group">
+                <h5>Color Family</h5>
+                <label for="" class="form-check-label"><input type="checkbox" class="form-check-input" name="white" id="" value="gloss">White</label>
+                <label for="" class="form-check-label"><input type="checkbox" class="form-check-input" name="grey" id="" value="matt">Grey</label>
+                <label for="" class="form-check-label"><input type="checkbox" class="form-check-input" name="brown" id="" value="satin">Brown</label>
+                <label for="" class="form-check-label"><input type="checkbox" class="form-check-input" name="black" id="" value="satin">Black</label>
+            </div>
+
+            <div class="filter-group">
+                <h5>Size</h5>
+                <select id="sizeFilter" class="form-control">
+                    <option value="">All</option>
+                    <option>80X80 M</option>
+                    <option>80X60 M</option>
+                    <option>80X30 M</option>
+                    <option>120X120 M</option>
+                    <option>40X40 M</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <h5>Price Range</h5>
+                <input type="range" name="" min="3000" max="100000" step="500" id="priceRange" style="width: 100%;">
+                <p id="priceLabel">{{ config('settings.site_currency_symbol') }}3,000 to {{ config('settings.site_currency_symbol') }}100,000</p>
+            </div>
+
+            <div style="display: flex; justify-content:space-between">
+                <button class="btn btn-danger">Clear Filters</button>
+                <button class="btn btn-primary">Filter</button>
             </div>
         </div>
+    </div> --}}
+    <!-- End Sidebar Modal -->
 
-        <div class="sidebar-room-feed">
-            <h2>Room Gallery</h2>
-            <ul class="sidebar-room-content">
-                <li>
-                    <img src="assets/img/room/room-img1.jpg" alt="Images">
-                    <div class="content">
-                        <h3><a href="room-details.html">Single Room</a></h3>
-                        <span>320 / Per Night </span>
-                    </div>
-                </li>
+    <!-- Banner Area Two -->
+    {{-- @include('frontend.home.components.banner_area') --}}
+    @include('frontend.home.components.slider_banner')
+    <!-- Banner Area Two End -->
 
-                <li>
-                    <img src="assets/img/room/room-img2.jpg" alt="Images">
-                    <div class="content">
-                        <h3><a href="room-details.html">Luxury Room</a></h3>
-                        <span>360 / Per Night </span>
-                    </div>
-                </li>
+    <!-- About Area -->
+    @include('frontend.home.components.about_area')
+    <!-- About Area End -->
 
-                <li>
-                    <img src="assets/img/room/room-img3.jpg" alt="Images">
-                    <div class="content">
-                        <h3><a href="room-details.html">Double Room</a></h3>
-                        <span>370 / Per Night </span>
-                    </div>
-                </li>
-            </ul>
-        </div>
+    <!-- Tile Collection Area Two -->
+    @include('frontend.home.components.service_area')
+    <!-- Tile Collection Area End -->
 
-        <div class="contact-us">
-            <h2>Contact Us</h2>
-            <ul>
-                <li>
-                    <i class='bx bx-current-location'></i>
-                    Address: 123 Stanton, <br> Virginia, USA
+    <!-- Offer Area -->
+    @include('frontend.home.components.product_slider')
+    <!-- Offer Area End -->
 
-                </li>
+    <!-- Services Area Two -->
+    @include('frontend.home.components.product_area')
+    <!-- Services Area Two End -->
 
-                <li>
-                    <i class='bx bx-mail-send'></i>
-                    <a href="mailto:hello@atoli.com">hello@atoli.com</a>
-                    <a href="#">Skype: example</a>
-                </li>
+    <!-- Ability Area -->
+    @include('frontend.home.components.ability_area')
+    <!-- Ability Area  End -->
 
-                <li>
-                    <i class='bx bx-phone-call'></i>
-                    <a href="tel:+1(123)-456-7890"> +1 (123) 456 7890</a>
-                    <a href="tel:+1(123)-456-6790"> +1 (123) 456 6790</a>
-                </li>
-            </ul>
-        </div>
+    <!-- Team Area Two -->
+    @include('frontend.home.components.team_area')
+    <!-- Team Area Two End -->
 
-        <div class="sidebar-follow-us">
-            <h2>Follow Us</h2>
+    <!-- FAQ Area -->
+    @include('frontend.home.components.faq_area')
+    <!-- FAQ Area End -->
 
-            <ul class="social-wrap">
-                <li>
-                    <a href="#" target="_blank">
-                        <i class="bx bxl-twitter"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" target="_blank">
-                        <i class="bx bxl-instagram"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" target="_blank">
-                        <i class="bx bxl-facebook"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" target="_blank">
-                        <i class="bx bxl-youtube"></i>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</div>
-<!-- End Sidebar Modal -->
+    <!-- Testimonials Area Two  -->
+    @include('frontend.home.components.testimonial_area')
+    <!-- Testimonials Area Two End -->
 
-<!-- Banner Area Two -->
-{{-- @include('frontend.home.components.banner_area') --}}
-@include('frontend.home.components.slider_banner')
-<!-- Banner Area Two End -->
-
-<!-- About Area -->
-@include('frontend.home.components.about_area')
-<!-- About Area End -->
-
-<!-- Tile Collection Area Two -->
-@include('frontend.home.components.service_area')
-<!-- Tile Collection Area End -->
-
-<!-- Services Area Two -->
-@include('frontend.home.components.product_area')
-<!-- Services Area Two End -->
-
-<!-- Ability Area -->
-@include('frontend.home.components.ability_area')
-<!-- Ability Area  End -->
-
-<!-- Team Area Two -->
-@include('frontend.home.components.team_area')
-<!-- Team Area Two End -->
-
-<!-- Testimonials Area Two  -->
-@include('frontend.home.components.testimonial_area')
-<!-- Testimonials Area Two End -->
-
-<!-- FAQ Area -->
-@include('frontend.home.components.faq_area')
-<!-- FAQ Area End -->
-
-<!-- Buy Area -->
-@include('frontend.home.components.buy_area')
-<!-- Book Area End -->
-
-<!-- Contact Area -->
-@include('frontend.home.components.contact_area')
-<!-- Contact Area End -->
-
-<!-- Blog Area -->
-@include('frontend.home.components.blog_area')
-<!-- Blog Area End -->
-
+    <!-- Blog Area -->
+    @include('frontend.home.components.blog_area')
+    <!-- Blog Area End -->
 @endsection
+
+@push('frontend')
+    <script>
+        const currency = "{{ config('settings.site_currency_symbol') }}";
+        $("#priceRange").on('input', function() {
+            $("#priceLabel").text(`${currency}3,000 to ${currency}` + $(this).val());
+        });
+
+
+    </script>
+@endpush
