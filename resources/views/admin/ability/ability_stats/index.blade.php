@@ -1,5 +1,5 @@
-@extends('admin.layouts.footer')
-@section('admin')
+{{-- @extends('admin.layouts.master') --}}
+{{-- @section('admin') --}}
     @php
         $stat = App\Models\AbilityStat::first();
     @endphp
@@ -95,4 +95,4 @@
             </div>
         </div>
     </div>
-@endsection
+{{-- @endsection --}}

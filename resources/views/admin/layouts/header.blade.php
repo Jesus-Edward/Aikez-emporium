@@ -13,38 +13,48 @@
                     </li>
                     @php
                         $user = Auth::user();
+                        $notifications = App\Models\OrderPlacedNotification::where('seen', 1)->latest()->take(5)->get();
                     @endphp
 
                     <li class="nav-item dropdown dropdown-large">
-                        <a class="nav-link dropdown-toggle dropdown-toggle-nocaret position-relative" href="#"
-                            data-bs-toggle="dropdown"><span class="alert-count">7</span>
+                        <a class="nav-link dropdown-toggle dropdown-toggle-nocaret notification_beep" href="#"
+                            data-bs-toggle="dropdown">
                             <i class='bx bx-bell'></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end">
                             <a href="javascript:;">
                                 <div class="msg-header">
                                     <p class="msg-header-title">Notifications</p>
-                                    <p class="msg-header-badge">8 New</p>
+                                    <a href="">
+                                        <a href="{{ route('admin.clear-notification') }}" class="msg-header-badge">Mark All As Read</a>
+                                    </a>
                                 </div>
                             </a>
-                            <div class="header-notifications-list">
-                                <a class="dropdown-item" href="javascript:;">
-                                    <div class="d-flex align-items-center">
-                                        <div class="user-online">
-                                            <img src="assets/images/avatars/avatar-1.png" class="msg-avatar"
-                                                alt="user avatar">
+                            <div class="header-notifications-list rt_notification">
+                                @foreach ($notifications as $notification)
+                                    <a class="dropdown-item" href="{{ route('admin.order.view', $notification->order_id) }}">
+                                        <div class="d-flex justify-content-start">
+                                            <div style="background: #008cff;width: 30px;height: 30px;border-radius: 50px;color:#fff; display:flex; justify-content:center;align-items:center; margin-right:8px">
+                                                <i class="fas fa-bell" style=""></i>
+                                            </div>
+                                            <div class="">
+                                                <p class="msg-info">{{ $notification->message }}</p>
+                                                <small>{{ $notification->created_at->format('Y-m-d | H:i A') }}</small>
+                                                 <div class="time">
+                                                    @if ($notification->seen)
+                                                        seen
+                                                    @else
+                                                        new
+                                                    @endif
+                                                 </div>
+                                            </div>
                                         </div>
-                                        <div class="flex-grow-1">
-                                            <h6 class="msg-name">Daisy Anderson<span class="msg-time float-end">5 sec
-                                                    ago</span></h6>
-                                            <p class="msg-info">The standard chunk of lorem</p>
-                                        </div>
-                                    </div>
-                                </a>
+                                    </a>
+                                @endforeach
                             </div>
                             <a href="javascript:;">
                                 <div class="text-center msg-footer">
-                                    <button class="btn btn-primary w-100">View All Notifications</button>
+                                    <a href="{{ route('admin.all-orders') }}" class="btn btn-primary w-100">View All Notifications</a>
                                 </div>
                             </a>
                         </div>

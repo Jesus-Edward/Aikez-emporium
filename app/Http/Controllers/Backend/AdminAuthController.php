@@ -16,11 +16,13 @@ class AdminAuthController extends Controller
 {
     use FileUploadTrait;
 
-    public function profile() {
+    public function profile()
+    {
         return view('admin.profile.index');
     }
 
-    public function updateProfile(AdminUpdateDetailsRequest $request, $id) {
+    public function updateProfile(AdminUpdateDetailsRequest $request, $id)
+    {
 
         DB::beginTransaction();
         try {
@@ -49,7 +51,6 @@ class AdminAuthController extends Controller
             logger($e);
             throw ValidationException::withMessages([$e]);
         }
-
     }
 
     public function updateAdminPassword(Request $request)

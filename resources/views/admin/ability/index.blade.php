@@ -23,10 +23,9 @@
                         {{ $dataTable->table(['class' => 'table table-striped w-100']) }}
 
                         <!-- Ability Statistics -->
-
                         @include('admin.ability.ability_stats.index')
-
                     </div>
+
                 </div>
             </div>
         </div>

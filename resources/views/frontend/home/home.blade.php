@@ -134,5 +134,26 @@
         });
 
 
+        $(document).on('submit', "#addToCartForm", function(e) {
+            e.preventDefault();
+            let form = $(this).serialize();
+
+            $.ajax({
+                method: 'POST',
+                url: "{{ route('product.add-to-cart') }}",
+                data: form,
+                success: function(res) {
+                    if (res.status === 'success') {
+                        $('.cart-num').text(res.count);
+                        toastr.success(res.message);
+                    }
+                },
+                error: function(xhr, status, error) {
+                    let errorMessage = xhr.responseJSON.message;
+                    toastr.error(errorMessage);
+                },
+            })
+        })
+
     </script>
 @endpush

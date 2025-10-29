@@ -2979,6 +2979,8 @@ Room Area
 
 .room-card-two .room-card-img a img {
   border-radius: 15px;
+  height: 200px;
+  width: 100%;
 }
 
 .room-card-two .room-card-content {
@@ -3052,6 +3054,13 @@ Room Area
 
 .room-card-two .room-card-content .book-more-btn:hover {
   background-color: #1B2132;
+}
+
+@media (max-width: 768px) {
+    .room-card-two .room-card-img img {
+      height: 300px !important;
+      width: 100% !important;
+    }
 }
 
 .side-bar-form {
@@ -6460,7 +6469,7 @@ PreLoader CSS End
     font-size: 18px;
     font-weight: 700;
     text-transform: capitalize;
-    color: var(--colorBlack);
+    color: var(--colorBlack) !important;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -6470,7 +6479,7 @@ PreLoader CSS End
 .fp_dash_personal_info h4 a {
     font-size: 14px;
     background: var(--colorPrimary);
-    color: var(--colorWhite);
+    color: #000000 !important;
     font-weight: 600;
     padding: 4px 15px;
     border-radius: 30px;
@@ -6483,7 +6492,7 @@ PreLoader CSS End
 }
 
 .fp_dash_personal_info h4 a span {
-    color: var(--colorWhite);
+    color: var(--colorBlack) !important;
 }
 
 .fp_dash_personal_info h4 a:hover {
@@ -6495,7 +6504,7 @@ PreLoader CSS End
 }
 
 .fp_dash_personal_info p {
-    color: #010f1c;
+    color: var(--colorBlack) !important;
     margin-top: 20px;
     display: flex;
     justify-content: start;
@@ -6506,7 +6515,7 @@ PreLoader CSS End
     display: inline-block;
     min-width: 120px;
     font-weight: 500;
-    color: #010f1c;
+    color: var(--colorBlack) !important;
 }
 
 .fp_dash_personal_info_edit {
@@ -6614,3 +6623,537 @@ PreLoader CSS End
      border-radius: 3px;
      cursor: pointer;
  }
+
+.dash_add_new_address {
+    border-radius: 30px;
+    padding: 5px 10px;
+    background: var(--gradiantBg);
+    color: var(--colorWhite) !important;
+    cursor: pointer;
+    font-size: 14px;
+    text-transform: capitalize;
+    transition: all linear .3s;
+    -webkit-transition: all linear .3s;
+    -moz-transition: all linear .3s;
+    -ms-transition: all linear .3s;
+    -o-transition: all linear .3s;
+}
+
+.dash_add_new_address:hover {
+    background: var(--gradiantHoverBg);
+}
+
+.address_body.show_new_address .fp_dashboard_existing_address {
+    display: none;
+}
+
+.address_body.show_new_address .fp_dashboard_new_address {
+    display: block;
+}
+
+.address_body.show_new_address .dash_add_new_address,
+.address_body.show_edit_address .dash_add_new_address {
+    display: none;
+}
+
+.address_body.show_edit_address .fp_dashboard_existing_address {
+    display: none;
+}
+
+.address_body.show_edit_address .fp_dashboard_edit_address {
+    display: block;
+}
+
+.fp_dashboard_existing_address .form-check {
+    padding-left: 0;
+}
+
+.fp_dashboard_existing_address .form-check label {
+    cursor: default;
+}
+
+.fp__address_modal .modal-dialog {
+    max-width: 700px;
+}
+
+.fp__address_modal .modal-header {
+    border: none;
+    background: #f6eee7fa;
+}
+
+.fp__address_modal .modal-title {
+    text-align: center;
+    width: 100%;
+    text-transform: capitalize;
+    font-weight: 600;
+}
+
+.common_btn {
+    width: 100%;
+    text-align: center;
+    padding: 10px 20px !important;
+}
+
+.common_btn::after,
+.common_btn::before {
+    display: none;
+}
+
+.fp__checkout_single_address {
+    border: 1px solid #eeeeeea6;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    background: #faf6f3;
+    position: relative;
+}
+
+/* .fp__check_form {
+    background: #fff;
+    padding: 25px 25px 5px 25px;
+    border-radius: 5px;
+    box-shadow: rgb(50 50 93 / 15%) 0px 0px 5px 0px;
+} */
+
+.fp__checkout_form h5 {
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: capitalize;
+    margin-bottom: 15px;
+    color: #0b2c3d;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.fp__checkout_form h5 a {
+    border-radius: 3px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--colorPrimary);
+    border: 1px solid var(--colorPrimary);
+    padding: 5px 10px;
+    font-family: var(--paraFont);
+    background: var(--colorWhite);
+    transition: all linear .3s;
+    -webkit-transition: all linear .3s;
+    -moz-transition: all linear .3s;
+    -ms-transition: all linear .3s;
+    -o-transition: all linear .3s;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+}
+
+.fp__checkout_form h5 a i {
+    margin-right: 5px;
+}
+
+.fp__checkout_form h5 a:hover {
+    background: var(--colorPrimary);
+    color: var(--colorWhite);
+}
+
+.fp__address_modal .modal-dialog {
+    max-width: 700px;
+}
+
+.fp__address_modal .modal-header {
+    border: none;
+    background: #f6eee7fa;
+}
+
+.fp__address_modal .modal-title {
+    text-align: center;
+    width: 100%;
+    text-transform: capitalize;
+    font-weight: 600;
+}
+
+.addresses .address-btn {
+    border: none;
+    border-radius: 50px;
+    padding: 2px 15px !important;
+    color: #fff;
+    background: orange;
+}
+
+.addresses .address-btn:hover {
+    background: transparent !important;
+    color: #000000;
+}
+
+.fp__checkout_single_address {
+    border: 1px solid #eeeeeea6;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    background: #faf6f3;
+    position: relative;
+}
+
+.fp__checkout_single_address .form-check input {
+    padding: 0;
+    border-color: var(--colorPrimary);
+}
+
+.fp__checkout_single_address .form-check input:checked {
+    background-color: var(--colorPrimary);
+    border-color: var(--colorPrimary);
+}
+
+.fp__checkout_single_address .form-check label {
+    display: block;
+    width: 100%;
+    cursor: pointer;
+}
+
+.fp__checkout_single_address .form-check label .icon {
+    border: 1px solid var(--colorPrimary);
+    text-transform: capitalize;
+    padding: 2px 15px;
+    border-radius: 2px;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--colorPrimary);
+}
+
+.fp__checkout_single_address .form-check label .icon i {
+    margin-right: 5px;
+}
+
+.fp__checkout_single_address .form-check label .address {
+    text-transform: capitalize;
+    margin-top: 10px;
+    display: block;
+}
+
+/* .fp__check_form .fp__check_single_form {
+    margin-bottom: 20px;
+}
+
+.fp__check_form .nice-select {
+    border: 1px solid #eee !important;
+    padding: 12px 20px;
+    margin-bottom: 20px;
+} */
+
+.fp__checkout_single_address ul {
+    display: flex;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.fp__checkout_single_address ul li a {
+    width: 25px;
+    height: 25px;
+    line-height: 23px;
+    background: var(--colorWhite);
+    color: var(--colorPrimary);
+    border: 1px solid var(--colorPrimary);
+    font-size: 12px;
+    text-align: center;
+    margin: 3px;
+    border-radius: 2px;
+    transition: all linear .3s;
+    cursor: pointer;
+    -webkit-transition: all linear .3s;
+    -moz-transition: all linear .3s;
+    -ms-transition: all linear .3s;
+    -o-transition: all linear .3s;
+}
+
+.fp__checkout_single_address ul li a:hover {
+    background: var(--colorPrimary);
+    color: var(--colorWhite);
+}
+
+.fp__check_single_form select {
+    display: block !important;
+}
+
+.fp__check_single_form .nice-select {
+    display: none !important;
+}
+
+
+.fp__invoice .go_back,
+.fp__invoice .fp__print_btn {
+    background: var(--colorPrimary);
+    border-radius: 30px;
+    padding: 8px 15px;
+    font-size: 14px;
+    text-transform: capitalize;
+    color: var(--colorWhite) !important;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all linear .3s;
+    -webkit-transition: all linear .3s;
+    -moz-transition: all linear .3s;
+    -ms-transition: all linear .3s;
+    -o-transition: all linear .3s;
+}
+
+.fp__invoice .fp__print_btn {
+    width: 150px;
+}
+
+.fp__invoice .go_back i {
+    margin-right: 10px;
+}
+
+.fp__invoice .go_back:hover,
+.fp__invoice .fp__print_btn:hover {
+    background: var(--colorBlack);
+}
+
+.fp__track_order {
+    background: var(--colorWhite);
+    border-radius: 5px;
+    padding: 30px;
+    margin-top: 30px;
+}
+
+.fp__track_order ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.fp__track_order ul li {
+    width: 33%;
+    position: relative;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--colorBlack);
+    text-transform: capitalize;
+    padding-top: 25px;
+    text-align: center;
+    margin-top: 22px;
+}
+
+.fp__track_order ul li::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 3px;
+    background: #eee;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.fp__track_order ul li::before {
+    position: absolute;
+    content: "\f1ce";
+    color: var(--colorPrimary);
+    font-family: "Font Awesome 5 Free";
+    font-size: 16px;
+    font-weight: 600;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50%;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #eee;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    z-index: 2;
+}
+
+.fp__track_order ul li:nth-child(2)::before {
+    content: "\f00c";
+}
+
+.fp__track_order ul li:nth-child(3)::before {
+    content: "\f291";
+}
+
+.fp__track_order ul li:nth-child(4)::before {
+    content: "\f0d1";
+}
+
+.fp__track_order ul li:nth-child(5)::before {
+    content: "\f466";
+}
+
+.fp__track_order ul li.active::after {
+    background: #4caf50;
+}
+
+.fp__track_order ul li.active::before {
+    background: #4caf50;
+    color: var(--colorWhite);
+}
+
+.fp__track_order ul li.declined_status::before {
+    background: #ae0404 !important;
+    color: var(--colorWhite);
+}
+
+.fp__track_order ul li.declined_status::before {
+    background: #ae0404 !important;
+    color: var(--colorWhite);
+}
+
+
+.fp__invoice_header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 30px 0px;
+}
+
+.fp__invoice_header .header_address {
+    max-width: 40%;
+    color: #010f1c;
+}
+
+.fp__invoice_header .header_address h4 {
+    text-transform: capitalize;
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #010f1c;
+}
+
+.fp__invoice_header .header_address b {
+    font-weight: 500;
+    font-size: 16px;
+    font-family: var(--headingFont);
+    text-transform: capitalize;
+    width: 95px;
+}
+
+.fp__invoice_header .header_address p {
+    display: flex;
+    flex-wrap: wrap;
+    color: #010f1c;
+}
+
+.fp__invoice_header p span {
+    color: #010f1c;
+}
+
+.fp__invoice_header h5 {
+    text-transform: capitalize;
+    font-size: 30px;
+    font-weight: 800;
+    color: #010f1c;
+}
+
+.fp__invoice table {
+    border: 0.5px solid #ddd;
+    margin: 0;
+    border-bottom: 0.5px solid #ddd;
+}
+
+.fp__invoice table tr {
+    border: transparent;
+    border-right: 0;
+}
+
+.fp__invoice table tr th {
+    background: var(--colorPrimary);
+    border: none;
+    font-weight: 700;
+    font-size: 16px;
+    text-transform: capitalize;
+    color: var(--colorWhite) !important;
+}
+
+.fp__invoice table tr th,
+.fp__invoice table tr td {
+    padding: 10px;
+    border-right: 0.5px solid #ddd;
+    text-align: center;
+}
+
+.fp__invoice table tr:last-child td {
+    border-bottom: .5px solid #ddd;
+}
+
+.fp__invoice table tr td {
+    color: var(--colorBlack);
+    vertical-align: middle;
+}
+
+.fp__invoice table tr td p {
+    color: var(--colorBlack);
+    margin: 0;
+    font-weight: 500;
+}
+
+.fp__invoice table tr td .size,
+.fp__invoice table tr td .coca_cola,
+.fp__invoice table tr td .coca_cola2 {
+    display: block;
+    color: var(--colorBlack);
+    text-transform: capitalize;
+}
+
+.fp__invoice table tr td .size {
+    color: var(--colorPrimary);
+}
+
+.fp__invoice table tr td b {
+    font-weight: 500;
+}
+
+.fp__invoice .sl_no {
+    min-width: 60px;
+}
+
+.fp__invoice .package {
+    width: 40%;
+    text-align: left;
+}
+
+.fp__invoice .price,
+.fp__invoice .qnty,
+.fp__invoice .total {
+    width: 20%;
+}
+
+.fp__invoice table tfoot {
+    border-bottom: .5px solid #ddd;
+}
+
+.fp__invoice table tfoot tr td {
+    border-bottom: .5px solid #ddd;
+}
+
+.fp__invoice table tfoot tr td b {
+    margin: 0;
+    border: none;
+    font-weight: 700;
+    font-size: 16px;
+    text-transform: capitalize;
+    display: block;
+    text-align: center;
+}
+
+.fp__invoice table tfoot .coupon b,
+.fp__invoice table tfoot .coast b {
+    font-weight: 500 !important;
+}
+
+.fp__invoice table tfoot .coupon b {
+    color: var(--colorPrimary);
+}
+
+.fp_dashboard_body .fp__invoice {
+    display: none;
+    background: #faf6f3fa;
+    border-radius: 5px;
+    padding: 30px;
+    overflow: hidden;
+}

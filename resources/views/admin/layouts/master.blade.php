@@ -66,6 +66,13 @@
             content: "" !important;
         }
     </style>
+
+    <script>
+        var pusherKey = "{{ config('settings.pusher_app_key') }}"
+        var pusherCluster = "{{ config('settings.pusher_cluster') }}"
+    </script>
+
+    @vite(['resources/js/app.js'])
 </head>
 
 <body>
@@ -120,6 +127,7 @@
     <script src="{{ asset('backend/assets/plugins/datatable/js/dataTables.bootstrap5.min.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.5/dist/sweetalert2.all.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/js/all.min.js" integrity="sha512-6BTOlkauINO65nLhXhthZMtepgJSghyimIalb+crKRPhvhmsCdnIuGcVbR5/aQY2A+260iC1OPy1oCdB6pSSwQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
 
     {{-- <script src="https://cdn.datatables.net/2.0.8/js/dataTables.min.js"></script> --}}
     {{-- <script src="https://cdn.datatables.net/2.0.8/js/dataTables.bootstrap4.min.js"></script> --}}
@@ -239,6 +247,14 @@
 
 
     </script>
+
+    {{-- <script type="module">
+        console.log(window.Echo);
+        window.Echo.channel('order-placed')
+        .listen('RealTimeOrderPlacedNotificationEvent', (e) => {
+            console.log(e);
+        });
+    </script> --}}
 
     @stack('script')
 </body>

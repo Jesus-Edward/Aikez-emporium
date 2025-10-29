@@ -2722,3 +2722,54 @@ input::placeholder {
     margin-right: 5px;
     text-align: center !important;
 }
+
+.invoice-detail-item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.beep {
+    position: relative;
+}
+
+.beep::before,
+.beep::after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    right: 8px;
+    width: 10px;
+    height: 10px;
+    background-color: #ffa426;
+    border-radius: 50%;
+    animation: pulsate 1s ease-out;
+    animation-iteration-count: infinite;
+    opacity: 1;
+}
+
+/* .beep.beep-sidebar:after {
+    position: static;
+    margin-left: 10px;
+} */
+
+.pulsate {
+    animation: pulsate 1s ease-out;
+    animation-iteration-count: infinite;
+    opacity: 1;
+}
+
+@-webkit-keyframes pulsate {
+    0% {
+        -webkit-transform: scale(0.1, 0.1);
+        opacity: 0.0;
+    }
+
+    50% {
+        opacity: 1.0;
+    }
+
+    100% {
+        -webkit-transform: scale(1.2, 1.2);
+        opacity: 0.0;
+    }
+}

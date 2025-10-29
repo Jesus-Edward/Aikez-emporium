@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\GeneralSetting;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -19,6 +20,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        $keys = ['pusher_app_id', 'pusher_app_key', 'pusher_app_secret_key', 'pusher_cluster'];
+        $pusherConf = GeneralSetting::whereIn('key', $keys)->pluck('value', 'key');
+        config(['broadcasting.connections.pusher.key' => $pusherConf['pusher_app_key']]);
+        config(['broadcasting.connections.pusher.secret' => $pusherConf['pusher_app_secret_key']]);
+        config(['broadcasting.connections.pusher.app_id' => $pusherConf['pusher_app_id']]);
+        config(['broadcasting.connections.pusher.options.cluster' => $pusherConf['pusher_cluster']]);
     }
 }

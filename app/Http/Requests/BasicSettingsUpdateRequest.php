@@ -23,6 +23,7 @@ class BasicSettingsUpdateRequest extends FormRequest
     {
         return [
             'site_name' => ['required', 'string', 'max:255'],
+            'company_address' => ['required', 'string', 'max:255'],
             'site_email' => ['nullable', 'email', 'max:255'],
             'site_phone' => ['nullable', 'string', 'max:50'],
             'site_default_currency' => ['required', 'max:5'],

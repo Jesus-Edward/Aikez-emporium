@@ -48,35 +48,35 @@
             <div class="personal_info_text">
                 <h6><span>Name:</span> {{ auth()->user()->name }}</h6>
                 <h6><span>Email:</span> {{ auth()->user()->email }}<h6>
-                <h6><span>Phone:</span> {{ auth()->user()->phone ?? 'N/A'}}</h6>
-                <h6><span>Address:</span> {{ auth()->user()->address ?? 'N/A' }}</h6>
+                        <h6><span>Phone:</span> {{ auth()->user()->phone ?? 'N/A' }}</h6>
+                        <h6><span>Address:</span> {{ auth()->user()->address ?? 'N/A' }}</h6>
             </div>
 
             <div class="fp_dash_personal_info_edit comment_input p-0">
-                <form action="" method="POST">
+                <form action="{{ route('profile.update') }}" method="POST">
                     @method('PUT')
                     @csrf
                     <div class="row">
                         <div class="col-md-6 col-sm-12">
                             <div class="form-group">
                                 <label class="form-label">name</label>
-                                <input type="text" class="form-control" value="{{ auth()->user()->name }}" placeholder="Name"
-                                    name="name">
+                                <input type="text" class="form-control" value="{{ auth()->user()->name }}"
+                                     name="name">
                             </div>
 
                         </div>
                         <div class="col-md-6 col-sm-12">
                             <div class="form-group">
                                 <label class="form-label">email</label>
-                                <input type="email" class="form-control" value="{{ auth()->user()->email }}" placeholder="Email"
-                                    name="email">
+                                <input type="email" class="form-control" value="{{ auth()->user()->email }}"
+                                     name="email">
                             </div>
 
                         </div>
                         <div class="col-md-6 col-sm-12">
                             <div class="form-group">
                                 <label class="form-label">Phone</label>
-                                <input type="text" class="form-control" value="{{ auth()->user()->phone }}" placeholder="Phone"
+                                <input type="text" class="form-control" value="{{ auth()->user()->phone }}"
                                     name="phone">
                             </div>
 
@@ -84,16 +84,16 @@
                         <div class="col-md-6 col-sm-12">
                             <div class="form-group">
                                 <label class="form-label">Address</label>
-                                <input type="text" class="form-control" value="{{ auth()->user()->address }}" placeholder="Address"
-                                    name="address">
+                                <input type="text" class="form-control" value="{{ auth()->user()->address }}"
+                                     name="address">
                             </div>
 
                         </div>
                         <div class="col-md-6 col-sm-12">
                             <div class="form-group">
                                 <label class="form-label">Country</label>
-                                <input type="text" class="form-control" value="{{ auth()->user()->country }}" placeholder="Country"
-                                    name="country">
+                                <input type="text" class="form-control" value="{{ auth()->user()->country }}"
+                                     name="country">
                             </div>
 
                         </div>
@@ -112,8 +112,9 @@
                             </div>
                         </div> --}}
 
-                        <div class="col-xl-12 mt-2">
-                            <button type="submit" class="default-btn btn-bg-two py-1 px-3" style="border-radius: 50px;border: none;">submit</button>
+                        <div class="col-xl-12 mt-3">
+                            <button type="submit" class="default-btn btn-bg-two py-1 px-3"
+                                style="border-radius: 50px;border: none;">Submit</button>
                         </div>
                     </div>
                 </form>

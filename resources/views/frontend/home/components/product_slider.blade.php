@@ -3,14 +3,14 @@
         min-height: 400px
     }
 
-    #featured-product .featured button {
+    #featured-product .featured a {
         border: none;
         padding: 5px 10px;
         background: orange;
         color: #fff;
     }
 
-    #featured-product .featured button:hover {
+    #featured-product .featured button:a {
         background: rgb(245, 195, 101);
         color: #fff;
     }
@@ -144,12 +144,14 @@
 
         @foreach ($brand_products as $product)
             <div class="featured col-sm-12 p-0">
-                <img src="{{ asset($product->image) }}" class="img-fluid prod-img" alt="">
+                <a href="{{ route('single.product.page', $product->slug) }}">
+                    <img src="{{ asset($product->image) }}" class="img-fluid prod-img" alt="">
+                </a>
                 <div class="details" data-tile-one="first_tile">
                     <h2>{{ $product->name }} - {{ $product->size->name }}</h2>
                     <h4>{{ $product->brand->name }}</h4>
                     <span>{{ $product->texture }}</span>
-                    <button class="text-uppercase">Buy Now</button>
+                    <a href="{{ route('single.product.page', $product->slug) }}" class="text-uppercase">Buy Now</a>
                 </div>
             </div>
         @endforeach

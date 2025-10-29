@@ -63,26 +63,35 @@
 
                         <div class="row">
                             @foreach ($productBySize[$size->id] as $product)
-                                <div class="col-md-6 col-sm-12 col-lg-3 mb-4">
+                                <div class="col-md-6 col-sm-12 col-lg-3 mb-4 wow fadeInUp" data-wow-duration="1s"">
                                     <div class="card size">
                                         <div class="card-body">
-                                            <div class="d-flex"
-                                                style="justify-content: flex-end; margin-right:10px; position: absolute;bottom:148px;right:30px; z-index:10">
-                                                <span class="btn-primary pay">
-                                                    {{ config('settings.site_currency_symbol') }} {{ $product->price }}
-                                                </span>
-                                            </div>
-                                            <img src="{{ asset($product->image) }}" class="img-fluid prod-img" height=""
-                                                width="" alt="">
-                                            <div class="body-details my-4">
-                                                <h5>{{ $product->name }}</h5>
-                                                <span>{{ $product->brand->name }}</span>
-                                            </div>
+                                            <form id="addToCartForm">
+                                                <div class="d-flex"
+                                                    style="justify-content: flex-end; margin-right:10px; position: absolute;bottom:148px;right:30px; z-index:10">
+                                                    <span class="btn-primary pay">
+                                                        <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                                        <input type="hidden" name="price" value="{{ $product->price }}">
+                                                        <input type="hidden" name="quantity" value="1">
+                                                        {{ config('settings.site_currency_symbol') }} {{ $product->price }}
+                                                    </span>
+                                                </div>
+                                                <a href="{{ route('single.product.page', $product->slug) }}">
+                                                    <img src="{{ asset($product->image) }}" class="img-fluid prod-img"
+                                                        height="" width="" alt="">
+                                                </a>
+                                                <div class="body-details my-4">
+                                                    <a href="{{ route('single.product.page', $product->slug) }}">
+                                                        <h5>{{ $product->name }}</h5>
+                                                    </a>
+                                                    <span>{{ $product->brand->name }}</span>
+                                                </div>
 
-                                            <div class="cta-btn">
-                                                <button class="action-btn">Get Sample</button>
-                                                <button class="action-btn">Buy Now</button>
-                                            </div>
+                                                <div class="cta-btn">
+                                                    <button type="button" disabled class="action-btn">Get Sample</button>
+                                                    <button type="submit" class="action-btn">Buy Now</button>
+                                                </div>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
@@ -98,3 +107,29 @@
         </div>
     </div>
 @endsection
+@push('frontend')
+    <script>
+        // $(document).ready(function() {
+        $(document).on('submit', "#addToCartForm", function(e) {
+            e.preventDefault();
+            let form = $(this).serialize();
+
+            $.ajax({
+                method: 'POST',
+                url: "{{ route('product.add-to-cart') }}",
+                data: form,
+                success: function(res) {
+                    if (res.status === 'success') {
+                        $('.cart-num').text(res.count);
+                        toastr.success(res.message);
+                    }
+                },
+                error: function(xhr, status, error) {
+                    let errorMessage = xhr.responseJSON.message;
+                    toastr.error(errorMessage);
+                },
+            })
+        })
+        // })
+    </script>
+@endpush

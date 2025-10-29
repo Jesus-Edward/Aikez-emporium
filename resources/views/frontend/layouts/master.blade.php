@@ -21,15 +21,16 @@
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/owl.theme.default.min.css') }}">
     <!-- Nice Select Min CSS -->
-    <link rel="stylesheet" href="{{ asset('frontend/assets/css/nice-select.min.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('frontend/assets/css/nice-select.min.css') }}"> --}}
     <!-- Meanmenu CSS -->
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/meanmenu.css') }}">
     <!-- Jquery Ui CSS -->
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/jquery-ui.css') }}">
     <!-- Style CSS -->
     <link href="{{ asset('modules/jquery-selectric/selectric.css') }}" rel="stylesheet">
-    
+
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/dashboard.css') }}">
     <!-- Responsive CSS -->
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/responsive.css') }}">
     <!-- Theme Dark CSS -->
@@ -39,6 +40,7 @@
 
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/slider_banner.css') }}">
     <link rel="stylesheet" href="{{ asset('modules/custom_card.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.5/dist/sweetalert2.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
@@ -110,7 +112,7 @@
     <!-- Owl Carousel Min JS -->
     <script src="{{ asset('frontend/assets/js/owl.carousel.min.js') }}"></script>
     <!-- Nice Select Min JS -->
-    <script src="{{ asset('frontend/assets/js/jquery.nice-select.min.js') }}"></script>
+    {{-- <script src="{{ asset('frontend/assets/js/jquery.nice-select.min.js') }}"></script> --}}
     <!-- Wow Min JS -->
     <script src="{{ asset('frontend/assets/js/wow.min.js') }}"></script>
     <!-- Jquery Ui JS -->
@@ -133,7 +135,10 @@
     <script src="{{ asset('frontend/assets/js/custom.js') }}"></script>
     <script src="{{ asset('frontend/assets/js/toastr.min.js') }}"></script>
     <script src="{{ asset('frontend/assets/select2/dist/js/select2.min.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.5/dist/sweetalert2.all.min.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/js/all.min.js" integrity="sha512-6BTOlkauINO65nLhXhthZMtepgJSghyimIalb+crKRPhvhmsCdnIuGcVbR5/aQY2A+260iC1OPy1oCdB6pSSwQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 
     <script>
         $.ajaxSetup({

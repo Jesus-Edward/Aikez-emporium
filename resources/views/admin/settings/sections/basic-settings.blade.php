@@ -94,6 +94,15 @@
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
                                     </div>
+                                    <div class="col-md-6 col-sm-12 mb-2">
+                                        <div class="form-group">
+                                            <label for="" class="form-label">Company Address</label>
+                                            <input type="text" name="company_address" value="{{ config('settings.company_address') }}" class="form-control">
+                                        </div>
+                                        @error('company_address')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
+                                    </div>
                                 </div>
                                 <div style="display: flex; justify-content:flex-end">
                                     <button class="btn btn-primary">Save</button>

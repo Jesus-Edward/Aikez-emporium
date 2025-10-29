@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
+use App\Models\Wishlist;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -36,7 +37,7 @@ class AuthenticatedSessionController extends Controller
         if ($request->user()->role === 'admin') {
             return redirect('/admin/dashboard')->with($notification);
         } elseif ($request->user()->role === 'user') {
-            return redirect('/user/profile/dashboard')->with($notification);
+            return redirect()->intended('/user/profile/dashboard')->with($notification);
         }
     }
 
@@ -56,6 +57,6 @@ class AuthenticatedSessionController extends Controller
             'alert-type' => 'success'
         );
 
-        return redirect('/login')->with($notification);
+        return redirect()->intended('/login')->with($notification);
     }
 }

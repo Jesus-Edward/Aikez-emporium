@@ -113,4 +113,30 @@ class GeneralSettingsController extends Controller
         );
         return redirect()->back()->with($notification);
     }
+
+    function updatePusherSettings(Request $request)
+    {
+        $validatedData = $request->validate([
+            'pusher_app_id' => ['required', 'max:255'],
+            'pusher_app_key' => ['required', 'max:255'],
+            'pusher_app_secret_key' => ['required', 'max:255'],
+            'pusher_cluster' => ['required', 'max:255']
+        ]);
+
+        foreach ($validatedData as $key => $value) {
+            GeneralSetting::updateOrCreate(
+                ['key' => $key],
+                ['value' => $value]
+            );
+        }
+
+        $settingsService = app(SettingsService::class);
+        $settingsService->clearCachedSettings();
+
+        $notification = array(
+            'message' => 'Pusher settings set successfully',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
+    }
 }

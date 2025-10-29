@@ -1,0 +1,1066 @@
+/*======================
+CHECKOUT PAGE START
+========================*/
+.fp__check_form {
+    background: #fff;
+    padding: 25px 25px 5px 25px;
+    border-radius: 5px;
+    box-shadow: rgb(50 50 93 / 15%) 0px 0px 5px 0px;
+}
+
+.fp__checkout_form h5 {
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: capitalize;
+    margin-bottom: 15px;
+    color: #0b2c3d;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.fp__checkout_form h5 a {
+    border-radius: 3px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--colorPrimary);
+    border: 1px solid var(--colorPrimary);
+    padding: 5px 10px;
+    font-family: var(--paraFont);
+    background: var(--colorWhite);
+    transition: all linear .3s;
+    -webkit-transition: all linear .3s;
+    -moz-transition: all linear .3s;
+    -ms-transition: all linear .3s;
+    -o-transition: all linear .3s;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+}
+
+.fp__checkout_form h5 a i {
+    margin-right: 5px;
+}
+
+.fp__checkout_form h5 a:hover {
+    background: var(--colorPrimary);
+    color: var(--colorWhite);
+}
+
+.fp__address_modal .modal-dialog {
+    max-width: 700px;
+}
+
+.fp__address_modal .modal-header {
+    border: none;
+    background: #f6eee7fa;
+}
+
+.fp__address_modal .modal-title {
+    text-align: center;
+    width: 100%;
+    text-transform: capitalize;
+    font-weight: 600;
+}
+
+.fp__address_modal .common_btn {
+    width: 100%;
+    text-align: center;
+    padding: 10px 20px !important;
+}
+
+.fp__address_modal .common_btn::after,
+.fp__address_modal .common_btn::before {
+    display: none;
+}
+
+.fp__checkout_single_address {
+    border: 1px solid #eeeeeea6;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    background: #faf6f3;
+    position: relative;
+}
+
+.fp__checkout_single_address .form-check input {
+    padding: 0;
+    border-color: var(--colorPrimary);
+}
+
+.fp__checkout_single_address .form-check input:checked {
+    background-color: var(--colorPrimary);
+    border-color: var(--colorPrimary);
+}
+
+.fp__checkout_single_address .form-check label {
+    display: block;
+    width: 100%;
+    cursor: pointer;
+}
+
+.fp__checkout_single_address .form-check label .icon {
+    border: 1px solid var(--colorPrimary);
+    text-transform: capitalize;
+    padding: 2px 15px;
+    border-radius: 2px;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--colorPrimary);
+}
+
+.fp__checkout_single_address .form-check label .icon i {
+    margin-right: 5px;
+}
+
+.fp__checkout_single_address .form-check label .address {
+    text-transform: capitalize;
+    margin-top: 10px;
+    display: block;
+}
+
+.fp__check_form .fp__check_single_form {
+    margin-bottom: 20px;
+}
+
+.fp__check_form .nice-select {
+    border: 1px solid #eee !important;
+    padding: 12px 20px;
+    margin-bottom: 20px;
+}
+
+.fp__checkout_single_address ul {
+    display: flex;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.fp__checkout_single_address ul li a {
+    width: 25px;
+    height: 25px;
+    line-height: 23px;
+    background: var(--colorWhite);
+    color: var(--colorPrimary);
+    border: 1px solid var(--colorPrimary);
+    font-size: 12px;
+    text-align: center;
+    margin: 3px;
+    border-radius: 2px;
+    transition: all linear .3s;
+    cursor: pointer;
+    -webkit-transition: all linear .3s;
+    -moz-transition: all linear .3s;
+    -ms-transition: all linear .3s;
+    -o-transition: all linear .3s;
+}
+
+.fp__checkout_single_address ul li a:hover {
+    background: var(--colorPrimary);
+    color: var(--colorWhite);
+}
+
+/*======================
+  CHECKOUT PAGE END
+========================*/
+
+
+
+/* ===========================
+    DASHBOARD START
+============================== */
+.fp__dashboard_area {
+    border: 1px solid rgb(233, 242, 255);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.fp__dashboard_menu {
+    background: #faf6f3fa;
+    height: 100%;
+    overflow: hidden;
+}
+
+.dasboard_header {
+    margin-bottom: 20px;
+    padding: 30px 0px;
+    text-align: center;
+}
+
+.dasboard_header .dasboard_header_img {
+    border-radius: 50%;
+    border: 5px solid var(--colorWhite);
+    box-shadow: var(--boxShadow);
+    width: 140px;
+    height: 140px;
+    position: relative;
+    margin: 0 auto;
+}
+
+.dasboard_header .dasboard_header_img img {
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+.dasboard_header .dasboard_header_img label {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    right: 5px;
+    font-size: 14px;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 50%;
+    background: var(--colorWhite);
+    box-shadow: var(--boxShadow);
+    cursor: pointer;
+    transition: all linear .3s;
+    -webkit-transition: all linear .3s;
+    -moz-transition: all linear .3s;
+    -ms-transition: all linear .3s;
+    -o-transition: all linear .3s;
+}
+
+.dasboard_header .dasboard_header_img label:hover {
+    background: var(--colorPrimary);
+    color: var(--colorWhite);
+}
+
+.dasboard_header h2 {
+    font-size: 18px;
+    font-weight: 900;
+    color: var(--colorBlack);
+    text-transform: capitalize;
+    margin-bottom: 5px;
+    margin-top: 25px;
+    text-align: center;
+}
+
+.dasboard_header p {
+    margin: 0px;
+}
+
+.fp__dashboard_menu button {
+    text-align: left;
+    font-size: 16px;
+    font-weight: 500;
+    position: relative;
+    transition: all 0.3s linear 0s;
+    background: none !important;
+    color: var(--colorBlack) !important;
+    border-radius: 0px !important;
+    border-bottom: 1px solid #d0d0d0 !important;
+    padding: 0px 0px !important;
+    -webkit-transition: all 0.3s linear 0s;
+    -moz-transition: all 0.3s linear 0s;
+    -ms-transition: all 0.3s linear 0s;
+    -o-transition: all 0.3s linear 0s;
+    text-transform: capitalize;
+}
+
+.fp__dashboard_menu button span {
+    display: inline-block;
+    transition: all 0.3s linear 0s;
+    -webkit-transition: all 0.3s linear 0s;
+    -moz-transition: all 0.3s linear 0s;
+    -ms-transition: all 0.3s linear 0s;
+    -o-transition: all 0.3s linear 0s;
+    width: 50px;
+    height: 50px;
+    background: var(--colorPrimary);
+    color: var(--colorWhite) !important;
+    text-align: center;
+    line-height: 50px;
+    margin-right: 10px;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .nav-link:hover {
+    background: #292b750a !important;
+}
+
+.fp__dashboard_menu button.active::after {
+    position: absolute;
+    content: "";
+    background: var(--colorPrimary);
+    width: 8px;
+    height: 50px;
+    top: 0;
+    right: -3px;
+    transition: all 0.3s linear 0s;
+    -webkit-transition: all 0.3s linear 0s;
+    -moz-transition: all 0.3s linear 0s;
+    -ms-transition: all 0.3s linear 0s;
+    -o-transition: all 0.3s linear 0s;
+}
+
+.fp__dashboard_content {
+    padding: 25px 25px 25px 0px;
+}
+
+.fp_dashboard_body h3 {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--colorBlack);
+    text-transform: capitalize;
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.fp_dashboard_body h3 .dash_add_new_address {
+    border-radius: 30px;
+    padding: 8px 15px;
+    background: var(--gradiantBg);
+    color: var(--colorWhite) !important;
+    cursor: pointer;
+    font-size: 14px;
+    text-transform: capitalize;
+    transition: all linear .3s;
+    -webkit-transition: all linear .3s;
+    -moz-transition: all linear .3s;
+    -ms-transition: all linear .3s;
+    -o-transition: all linear .3s;
+}
+
+.fp_dashboard_body h3 .dash_add_new_address:hover {
+    background: var(--gradiantHoverBg);
+}
+
+.fp__dsahboard_overview_item {
+    background: #faf6f3fa;
+    padding: 30px;
+    text-align: center;
+    border-radius: 10px;
+    position: relative;
+    border: 1px solid #eee;
+    margin-bottom: 25px;
+}
+
+.fp__dsahboard_overview_item .icon {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    background: orange;
+    border-radius: 50%;
+    font-size: 20px;
+    color: var(--colorWhite);
+}
+
+.fp__dsahboard_overview_item h4 {
+    text-transform: capitalize;
+    font-size: 16px;
+    font-weight: 600;
+    color: orange;
+    margin-top: 20px;
+    font-family: var(--paraFont);
+    text-align: center;
+}
+
+.fp__dsahboard_overview_item h4 span {
+    font-size: 18px;
+    font-weight: 600;
+    color: orange;
+    font-family: var(--paraFont);
+    margin-left: 5px;
+}
+
+.fp__dsahboard_overview_item.red .icon {
+    background: var(--colorPrimary);
+}
+
+.fp__dsahboard_overview_item.red h4,
+.fp__dsahboard_overview_item.red h4 span {
+    color: var(--colorPrimary);
+}
+
+.fp__dsahboard_overview_item.green .icon {
+    background: #4caf50;
+}
+
+.fp__dsahboard_overview_item.green h4,
+.fp__dsahboard_overview_item.green h4 span {
+    color: #4caf50;
+}
+
+.fp_dash_personal_info {
+    background: #faf6f3fa;
+    border-radius: 5px;
+    padding: 30px;
+}
+
+.fp_dash_personal_info h4 {
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: capitalize;
+    color: var(--colorBlack);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.fp_dash_personal_info h4 a {
+    font-size: 14px;
+    background: var(--colorPrimary);
+    color: var(--colorWhite);
+    font-weight: 600;
+    padding: 4px 15px;
+    border-radius: 30px;
+    transition: all linear .3s;
+    -webkit-transition: all linear .3s;
+    -moz-transition: all linear .3s;
+    -ms-transition: all linear .3s;
+    -o-transition: all linear .3s;
+    cursor: pointer;
+}
+
+.fp_dash_personal_info h4 a span {
+    color: var(--colorWhite);
+}
+
+.fp_dash_personal_info h4 a:hover {
+    background: var(--colorBlack);
+}
+
+.fp_dash_personal_info h4 a .cancel {
+    display: none;
+}
+
+.fp_dash_personal_info p {
+    color: var(--colorBlack);
+    margin-top: 20px;
+    display: flex;
+    justify-content: start;
+    margin-bottom: 0 !important;
+}
+
+.fp_dash_personal_info p span {
+    display: inline-block;
+    min-width: 120px;
+    font-weight: 500;
+    color: var(--colorBlack);
+}
+
+.fp_dashboard_new_address,
+.fp_dashboard_edit_address {
+    background: #faf6f3fa;
+    border-radius: 5px;
+    padding: 30px;
+    display: none;
+}
+
+.fp_dashboard_new_address h4,
+.fp_dashboard_edit_address h4 {
+    text-transform: capitalize;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.fp_dashboard_new_address .fp__check_single_form,
+.fp_dashboard_edit_address .fp__check_single_form {
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.fp_dashboard_new_address .check_area,
+.fp_dashboard_edit_address .check_area {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.fp_dashboard_new_address .form-check,
+.fp_dashboard_edit_address .form-check {
+    margin-right: 20px;
+    background: var(--colorWhite);
+    border: 1px solid #ddd;
+    padding: 10px 30px 10px 40px;
+    border-radius: 5px;
+}
+
+.fp_dashboard_new_address .form-check label,
+.fp_dashboard_edit_address .form-check label {
+    text-transform: capitalize;
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--colorBlack);
+    display: block;
+    width: 100%;
+}
+
+.fp_dashboard_new_address .form-check input,
+.fp_dashboard_edit_address .form-check input {
+    padding: 0;
+}
+
+.fp_dashboard_new_address .form-check input:checked,
+.fp_dashboard_edit_address .form-check input:checked {
+    background-color: var(--colorPrimary);
+    border-color: var(--colorPrimary);
+}
+
+.fp_dashboard_new_address button,
+.fp_dashboard_edit_address button {
+    padding: 8px 20px !important;
+}
+
+.fp_dashboard_new_address button::after,
+.fp_dashboard_new_address button::before,
+.fp_dashboard_edit_address button::after,
+.fp_dashboard_edit_address button::before {
+    display: none;
+}
+
+.address_body.show_new_address .fp_dashboard_existing_address {
+    display: none;
+}
+
+.address_body.show_new_address .fp_dashboard_new_address {
+    display: block;
+}
+
+.address_body.show_new_address .dash_add_new_address,
+.address_body.show_edit_address .dash_add_new_address {
+    display: none;
+}
+
+.address_body.show_edit_address .fp_dashboard_existing_address {
+    display: none;
+}
+
+.address_body.show_edit_address .fp_dashboard_edit_address {
+    display: block;
+}
+
+.fp_dashboard_existing_address .form-check {
+    padding-left: 0;
+}
+
+.fp_dashboard_existing_address .form-check label {
+    cursor: default;
+}
+
+.fp_dashboard_order table {
+    border-radius: 5px;
+    overflow: hidden;
+    margin: 0px;
+    background: #faf6f3fa;
+}
+
+.fp_dashboard_order table tr {
+    border-color: transparent;
+    display: flex;
+    border-top: 1px solid #ddd;
+}
+
+.fp_dashboard_order table tr th {
+    background: var(--colorPrimary);
+    text-transform: capitalize;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--colorWhite) !important;
+}
+
+.fp_dashboard_order table tr th,
+.fp_dashboard_order table tr td {
+    text-align: center;
+    padding: 10px 0px;
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fp_dashboard_order table tr td h5 {
+    color: var(--colorBlack);
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.fp_dashboard_order table tr td p {
+    text-transform: capitalize;
+    margin: 0px;
+}
+
+.fp_dashboard_order table tr td a {
+    font-size: 13px;
+    font-weight: 400;
+    background: var(--colorPrimary);
+    color: var(--colorWhite);
+    text-transform: capitalize;
+    transition: all 0.3s linear 0s;
+    border: 1px solid var(--colorPrimary);
+    padding: 5px 10px 3px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.fp_dashboard_order table tr td a:hover {
+    color: var(--colorPrimary);
+    background: var(--colorWhite);
+}
+
+.fp_dashboard_order table tr td span {
+    border-radius: 6px;
+    padding: 7px 0px;
+    width: 130px;
+    display: inline-block;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+.fp_dashboard_order table tr td .complete {
+    background: rgb(0 191 140 / 9%);
+    color: rgb(0, 191, 140);
+}
+
+.fp_dashboard_order table tr td .cancel {
+    background: rgba(254, 58, 96, 0.11);
+    color: rgb(254, 58, 96);
+}
+
+.fp_dashboard_order table tr td .active {
+    background: #292b751c;
+    color: var(--colorPrimary);
+}
+
+.fp_dashboard_body .fp__dashoard_wishlist {
+    margin-top: -20px;
+}
+
+.dashboard_review .fp__single_review {
+    margin-top: 20px;
+}
+
+.fp__dashboard .modal {
+    background: rgba(0, 0, 0, 0.467);
+    z-index: 99999;
+}
+
+.fp__dashboard .modal-dialog {
+    margin: 0px 0px 10px;
+    position: absolute;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    -webkit-transform: translate(-50%, -50%) !important;
+    -moz-transform: translate(-50%, -50%) !important;
+    -ms-transform: translate(-50%, -50%) !important;
+    -o-transform: translate(-50%, -50%) !important;
+}
+
+.fp__dashboard .modal-content {
+    padding: 20px;
+    border: none;
+    width: 500px;
+    background: rgb(233, 247, 250);
+}
+
+.fp__dashboard .modal-header {
+    border: 0px;
+}
+
+.fp__dashboard .modal-title {
+    font-size: 18px;
+    font-weight: 700;
+    width: 100%;
+}
+
+.fp__dashboard .modal-body {
+    text-align: center;
+}
+
+.fp__dashboard .modal-body img {
+    margin: 0px auto;
+    border-radius: 50%;
+    width: 150px !important;
+    height: 150px !important;
+    margin-bottom: 20px;
+}
+
+.fp__dashboard p {
+    margin-bottom: 5px;
+}
+
+.fp__dashboard p b {
+    font-size: 18px;
+    font-weight: 900;
+    color: var(--colorBlack);
+    display: block;
+}
+
+.fp__dashboard .modal-content p,
+.fp__dashboard .modal-content b {
+    text-align: center;
+}
+
+.fp__dashboard .modal-footer {
+    justify-content: space-between;
+    border: 0px;
+}
+
+.fp__dashboard .modal-footer button {
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: 500;
+    text-transform: capitalize;
+    width: 47%;
+    text-align: center;
+}
+
+.fp__dashboard .modal-footer .del_btn {
+    background: rgb(245, 249, 255);
+    transition: all 0.3s linear 0s;
+    -webkit-transition: all 0.3s linear 0s;
+    -moz-transition: all 0.3s linear 0s;
+    -ms-transition: all 0.3s linear 0s;
+    -o-transition: all 0.3s linear 0s;
+    background: red;
+    color: var(--colorWhite);
+}
+
+.fp__dashboard .modal-footer .del_btn:hover {
+    background: #c02b2b;
+}
+
+.fp__payment_modal {
+    z-index: 99999;
+}
+
+.fp__invoice .go_back {
+    background: var(--colorPrimary);
+    border-radius: 30px;
+    padding: 8px 15px;
+    font-size: 14px;
+    text-transform: capitalize;
+    color: var(--colorWhite) !important;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all linear .3s;
+    -webkit-transition: all linear .3s;
+    -moz-transition: all linear .3s;
+    -ms-transition: all linear .3s;
+    -o-transition: all linear .3s;
+}
+
+.fp__invoice .go_back i {
+    margin-right: 10px;
+}
+
+.fp__invoice .go_back:hover {
+    background: var(--colorBlack);
+}
+
+.fp__track_order {
+    background: var(--colorWhite);
+    border-radius: 5px;
+    padding: 30px;
+    margin-top: 30px;
+}
+
+.fp__track_order ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.fp__track_order ul li {
+    width: 33%;
+    position: relative;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--colorBlack);
+    text-transform: capitalize;
+    padding-top: 25px;
+    text-align: center;
+    margin-top: 22px;
+}
+
+.fp__track_order ul li::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 3px;
+    background: #eee;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.fp__track_order ul li::before {
+    position: absolute;
+    content: "\f1ce";
+    color: var(--colorPrimary);
+    font-family: "Font Awesome 5 Free";
+    font-size: 16px;
+    font-weight: 600;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50%;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #eee;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    z-index: 2;
+}
+
+.fp__track_order ul li:nth-child(2)::before {
+    content: "\f00c";
+}
+
+.fp__track_order ul li:nth-child(3)::before {
+    content: "\f291";
+}
+
+.fp__track_order ul li:nth-child(4)::before {
+    content: "\f0d1";
+}
+
+.fp__track_order ul li:nth-child(5)::before {
+    content: "\f466";
+}
+
+.fp__track_order ul li.active::after {
+    background: #4caf50;
+}
+
+.fp__track_order ul li.active::before {
+    background: #4caf50;
+    color: var(--colorWhite);
+}
+
+.fp__track_order ul li.declined_status::before {
+    background: #ae0404 !important;
+    color: var(--colorWhite);
+}
+
+.fp__track_order ul li.declined_status::before {
+    background: #ae0404 !important;
+    color: var(--colorWhite);
+}
+
+
+.fp__invoice_header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 30px 0px;
+}
+
+.fp__invoice_header .header_address {
+    max-width: 40%;
+}
+
+.fp__invoice_header .header_address h4 {
+    text-transform: capitalize;
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.fp__invoice_header .header_address b {
+    font-weight: 500;
+    font-size: 16px;
+    font-family: var(--headingFont);
+    text-transform: capitalize;
+    width: 95px;
+}
+
+.fp__invoice_header .header_address p {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.fp__invoice_header p span {
+    color: var(--colorPrimary);
+}
+
+.fp__invoice_header h5 {
+    text-transform: capitalize;
+    font-size: 30px;
+    font-weight: 800;
+}
+
+.fp__invoice table {
+    border: 0.5px solid #ddd;
+    margin: 0;
+    border-bottom: 0.5px solid #ddd;
+}
+
+.fp__invoice table tr {
+    border: transparent;
+    border-right: 0;
+}
+
+.fp__invoice table tr th {
+    background: var(--colorPrimary);
+    border: none;
+    font-weight: 700;
+    font-size: 16px;
+    text-transform: capitalize;
+    color: var(--colorWhite) !important;
+}
+
+.fp__invoice table tr th,
+.fp__invoice table tr td {
+    padding: 10px;
+    border-right: 0.5px solid #ddd;
+    text-align: center;
+}
+
+.fp__invoice table tr:last-child td {
+    border-bottom: .5px solid #ddd;
+}
+
+.fp__invoice table tr td {
+    color: var(--colorBlack);
+    vertical-align: middle;
+}
+
+.fp__invoice table tr td p {
+    color: var(--colorBlack);
+    margin: 0;
+    font-weight: 500;
+}
+
+.fp__invoice table tr td .size,
+.fp__invoice table tr td .coca_cola,
+.fp__invoice table tr td .coca_cola2 {
+    display: block;
+    color: var(--colorBlack);
+    text-transform: capitalize;
+}
+
+.fp__invoice table tr td .size {
+    color: var(--colorPrimary);
+}
+
+.fp__invoice table tr td b {
+    font-weight: 500;
+}
+
+.fp__invoice .sl_no {
+    min-width: 60px;
+}
+
+.fp__invoice .package {
+    width: 40%;
+    text-align: left;
+}
+
+.fp__invoice .price,
+.fp__invoice .qnty,
+.fp__invoice .total {
+    width: 20%;
+}
+
+.fp__invoice table tfoot {
+    border-bottom: .5px solid #ddd;
+}
+
+.fp__invoice table tfoot tr td {
+    border-bottom: .5px solid #ddd;
+}
+
+.fp__invoice table tfoot tr td b {
+    margin: 0;
+    border: none;
+    font-weight: 700;
+    font-size: 16px;
+    text-transform: capitalize;
+    display: block;
+    text-align: center;
+}
+
+.fp__invoice table tfoot .coupon b,
+.fp__invoice table tfoot .coast b {
+    font-weight: 500 !important;
+}
+
+.fp__invoice table tfoot .coupon b {
+    color: var(--colorPrimary);
+}
+
+.fp_dashboard_body .fp__invoice {
+    display: none;
+    background: #faf6f3fa;
+    border-radius: 5px;
+    padding: 30px;
+    overflow: hidden;
+}
+
+.dashboard_review .fp__comment {
+    background: #faf6f3fa;
+    box-shadow: none;
+}
+
+.fp_dash_personal_info_edit {
+    background: none;
+    box-shadow: none;
+    display: none;
+}
+
+.fp_dash_personal_info.show .personal_info_text {
+    display: none;
+}
+
+.fp_dash_personal_info.show .fp_dash_personal_info_edit {
+    display: block;
+}
+
+.fp_dash_personal_info.show .cancel {
+    display: block;
+}
+
+.fp_dash_personal_info.show .edit {
+    display: none;
+}
+
+.fp__invoice .print_btn {
+    padding: 10px 25px !important;
+    float: right;
+    margin-top: 35px;
+}
+
+.fp__invoice .print_btn::after,
+.fp__invoice .print_btn::before {
+    display: none;
+}
+
+.fp__invoice .print_btn i {
+    margin-right: 5px;
+}
+
+.fp__review_input .comment_input {
+    background: #faf6f3fa;
+    box-shadow: none;
+}
+
+.fp__change_password .fp__comment_imput_single {
+    margin-top: 20px;
+}
+
+/*=======================
+    DASHBOARD END
+========================*/

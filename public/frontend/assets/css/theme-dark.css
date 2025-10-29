@@ -135,13 +135,21 @@
   color: #ffffff;
 }
 
+.theme-dark .nav_cart_profile {
+    color: #ffffff !important;
+}
+
+.theme-dark .prod_cta {
+    color: #ffffff !important;
+}
+
 .theme-dark .top-header-bg {
   background-color: #1d1d1d;
 }
 
-.theme-dark .navbar-light .navbar-brand .logo-one {
+/* .theme-dark .navbar-light .navbar-brand .logo-one {
   display: none;
-}
+} */
 
 .theme-dark .navbar-light .navbar-brand .logo-two {
   display: inline-block;

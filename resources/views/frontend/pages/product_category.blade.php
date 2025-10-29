@@ -77,7 +77,7 @@
         <div class="container-fluid">
             <h2 class="mb-4 text-center">Our Tiles Categories</h2>
 
-            <div class="d-flex flex-wrap justify-content-center" id="cat-btn">
+            <div class="d-flex flex-wrap justify-content-center wow fadeInUp" data-wow-duration="1s"" id="cat-btn">
                 @foreach ($categories as $category)
                     <button data-category-id="{{ $category->id }}" class="category-btn "
                         >{{ $category->name }}</button>
@@ -90,6 +90,7 @@
 
             <div class="" style="padding-top: 8px">
                 <div class="row" id="tile-products">
+
                 </div>
             </div>
 
@@ -111,7 +112,7 @@
                 let html = '';
                 brands.forEach(brand => {
                     html += `
-                            <button class="brands-btn" data-brand-id="${brand.id}">${brand.name}</button>
+                            <button class="brands-btn wow fadeInLeft" data-wow-duration="1s" data-brand-id="${brand.id}">${brand.name}</button>
                    `;
                 });
                 $('#tile-brands').html(html);
@@ -150,6 +151,27 @@
 
             const url = $(this).attr('href');
             loadProducts(url);
+        })
+
+        $(document).on('submit', "#addToCartForm", function(e) {
+            e.preventDefault();
+            let form = $(this).serialize();
+
+            $.ajax({
+                method: 'POST',
+                url: "{{ route('product.add-to-cart') }}",
+                data: form,
+                success: function(res) {
+                    if (res.status === 'success') {
+                        $('.cart-num').text(res.count);
+                        toastr.success(res.message);
+                    }
+                },
+                error: function(xhr, status, error) {
+                    let errorMessage = xhr.responseJSON.message;
+                    toastr.error(errorMessage);
+                },
+            })
         })
     </script>
 @endpush

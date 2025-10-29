@@ -11,7 +11,8 @@
                 <div class="ps-3">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb mb-0 p-0">
-                            <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}"><i class="bx bx-home-alt"></i></a>
+                            <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}"><i
+                                        class="bx bx-home-alt"></i></a>
                             </li>
                             <li class="breadcrumb-item active" aria-current="page">{{ $user->name }} Profile</li>
                         </ol>
@@ -32,14 +33,15 @@
                                         <div class="mt-3">
                                             <h4>{{ $user->name }}</h4>
                                             <p class="text-secondary mb-1">{{ $user->role }}</p>
-                                            <p class="text-muted font-size-sm">{{ $user->address ?? 'N/A'}}</p>
+                                            <p class="text-muted font-size-sm">{{ $user->address ?? 'N/A' }}</p>
                                         </div>
                                     </div>
                                     <hr class="my-4" />
                                     <ul class="list-group list-group-flush">
                                         <li
                                             class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                                            <h6 class="mb-0"><i class="bx bx-envelope" style="height: 20px; width:20px"></i> Email</h6>
+                                            <h6 class="mb-0"><i class="bx bx-envelope"
+                                                    style="height: 20px; width:20px"></i> Email</h6>
                                             <span class="text-secondary">{{ $user->email }}</span>
                                         </li>
                                         <li
@@ -61,7 +63,8 @@
                             <div class="card">
                                 <div class="card-header">Update Profile</div>
                                 <div class="card-body">
-                                    <form action="{{ route('admin.profile.update', $user->id) }}" method="POST" enctype="multipart/form-data">
+                                    <form action="{{ route('admin.profile.update', $user->id) }}" method="POST"
+                                        enctype="multipart/form-data">
                                         @csrf
                                         @method('PUT')
                                         <div class="row mb-3">
@@ -69,7 +72,8 @@
                                                 <h6 class="mb-0">Full Name</h6>
                                             </div>
                                             <div class="col-sm-9 text-secondary">
-                                                <input type="text" class="form-control" name="name" value="{{ $user->name }}" />
+                                                <input type="text" class="form-control" name="name"
+                                                    value="{{ $user->name }}" />
                                             </div>
                                             @error('name')
                                                 <small class="text-danger">{{ $message }}</small>
@@ -80,7 +84,8 @@
                                                 <h6 class="mb-0">Email</h6>
                                             </div>
                                             <div class="col-sm-9 text-secondary">
-                                                <input type="text" class="form-control" name="email" value="{{ $user->email }}" />
+                                                <input type="text" class="form-control" name="email"
+                                                    value="{{ $user->email }}" />
                                             </div>
                                             @error('email')
                                                 <small class="text-danger">{{ $message }}</small>
@@ -91,7 +96,8 @@
                                                 <h6 class="mb-0">Phone</h6>
                                             </div>
                                             <div class="col-sm-9 text-secondary">
-                                                <input type="text" class="form-control" name="phone" value="{{ $user->phone }}" />
+                                                <input type="text" class="form-control" name="phone"
+                                                    value="{{ $user->phone }}" />
                                             </div>
                                             @error('phone')
                                                 <small class="text-danger">{{ $message }}</small>
@@ -114,7 +120,8 @@
                                                 <h6 class="mb-0">Country</h6>
                                             </div>
                                             <div class="col-sm-9 text-secondary">
-                                                <input type="text" class="form-control" name="country" value="{{ $user->country }}" />
+                                                <input type="text" class="form-control" name="country"
+                                                    value="{{ $user->country }}" />
                                             </div>
                                             @error('country')
                                                 <small class="text-danger">{{ $message }}</small>
@@ -148,7 +155,7 @@
                                                 @enderror
                                             </div>
                                         </div>
-                                         <div class="row mb-3">
+                                        <div class="row mb-3">
                                             <div class="col-sm-3">
                                             </div>
                                             <div class="col-sm-9 text-secondary">
@@ -193,7 +200,8 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="form-label">Confirm Password</label>
-                                                    <input type="text" name="password_confirmation" class="form-control">
+                                                    <input type="text" name="password_confirmation"
+                                                        class="form-control">
                                                 </div>
 
                                                 <div class="mt-2">

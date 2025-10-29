@@ -8,7 +8,8 @@ class Product extends Model
 {
     protected $guarded = [];
 
-    public function brand() {
+    public function brand()
+    {
         return $this->belongsTo(Brand::class);
     }
 
@@ -16,7 +17,8 @@ class Product extends Model
     //     return $this->belongsTo(Category::class);
     // }
 
-    public function size() {
+    public function size()
+    {
         return $this->belongsTo(Size::class);
     }
 }

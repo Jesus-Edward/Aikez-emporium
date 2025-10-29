@@ -47,6 +47,16 @@
                                 </div>
                             </a>
                         </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" data-bs-toggle="tab" href="#pusher-setting" role="tab"
+                                aria-selected="false">
+                                <div class="d-flex align-items-center">
+                                    <div class="tab-icon"><i class='bx bx-microphone font-18 me-1'></i>
+                                    </div>
+                                    <div class="tab-title">Pusher Settings</div>
+                                </div>
+                            </a>
+                        </li>
                     </ul>
                     <div class="tab-content py-3">
                         <div class="tab-pane fade show active" id="basic-settings" role="tabpanel">
@@ -60,6 +70,9 @@
                         </div>
                         <div class="tab-pane fade" id="warning-mail" role="tabpanel">
                             @include('admin.settings.sections.seo-settings')
+                        </div>
+                        <div class="tab-pane fade" id="pusher-setting" role="tabpanel">
+                            @include('admin.settings.sections.pusher-settings')
                         </div>
                     </div>
                 </div>

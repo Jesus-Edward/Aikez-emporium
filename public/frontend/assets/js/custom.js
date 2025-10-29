@@ -345,7 +345,7 @@
     new WOW().init();
 
     // Nice Select JS
-    $("select").niceSelect();
+    // $("select").niceSelect();
 
     // Back To Top Js
     $("body").append(
@@ -509,10 +509,27 @@ $(".dash_info_btn").click(function () {
     $(".fp_dash_personal_info").toggleClass("show");
 });
 
-// Selectric
-// if (jQuery().selectric) {
-//     $(".selectric").selectric({
-//         disableOnMobile: false,
-//         nativeOnMobile: false,
-//     });
-// }
+    $(".dash_add_new_address").on("click", function () {
+        $(".address_body").addClass("show_new_address");
+    });
+
+    $(".cancel_new_address").on("click", function () {
+        $(".address_body").removeClass("show_new_address");
+    });
+
+    // $('.dash_edit_btn').on('click', function () {
+    //     $(".address_body").addClass("show_edit_address");
+    // });
+
+    $(".cancel_edit_address").on("click", function () {
+        $(".address_body").removeClass("show_edit_address");
+    });
+
+    $(".go_back").on('click', function() {
+        $(".fp_dashboard_order").fadeIn();
+    })
+
+    $('.go_back').on('click', function() {
+        $(".fp__invoice").fadeOut();
+    })
+

@@ -2,7 +2,13 @@
     <div class="fp_dash_personal_info">
         <h4>Change your password</h4>
 
-        <form action="" method="POST">
+        <style>
+            h6,p,span, label {
+                color: var(--colorBlack) !important;
+            }
+        </style>
+
+        <form action="{{ route('password.update') }}" method="POST">
             @csrf
             @method('PUT')
             <div class="row my-4">

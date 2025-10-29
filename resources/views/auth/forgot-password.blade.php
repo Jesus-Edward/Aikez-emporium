@@ -51,12 +51,12 @@
                                     <span class="sp-color">Don't Fret!</span>
                                     <h6>Enter your email to get a new password</h6>
                                 </div>
-                                <form id="" method="POST" action="{{ route('password.request') }}">
+                                <form id="" method="POST" action="{{ route('password.email') }}">
                                     @csrf
                                     <div class="row">
                                         <div class="col-lg-12 ">
                                             <div class="form-group">
-                                                <input type="email" name="email" id="login" class="form-control" placeholder=" Enter Email" autofocus>
+                                                <input type="email" name="email" id="" class="form-control" placeholder=" Enter Email" autofocus>
                                                 @error('email')
                                                     <small class="text-danger">{{ $message }}</small>
                                                 @enderror

@@ -13,7 +13,7 @@
                                 Back
                             </a>
                         </div>
-                        <div class="card-header-action" >
+                        <div class="card-header-action">
                             <a href="{{ route('admin.brand.create') }}" class="btn btn-primary">
                                 Create Brand
                             </a>
