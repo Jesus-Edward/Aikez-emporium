@@ -1,7 +1,12 @@
 @extends('frontend.layouts.master')
 @section('frontend')
+    <style>
+        .breadcrumb-img {
+            background-image: url('{{ asset(config('settings.breadcrumb_logo')) }}');
+        }
+    </style>
     <!-- Inner Banner -->
-    <div class="inner-banner inner-bg12">
+    <div class="inner-banner breadcrumb-img">
         <div class="container">
             <div class="inner-title">
                 <ul>
@@ -69,12 +74,24 @@
                                             <form id="addToCartForm">
                                                 <div class="d-flex"
                                                     style="justify-content: flex-end; margin-right:10px; position: absolute;bottom:148px;right:30px; z-index:10">
-                                                    <span class="btn-primary pay">
-                                                        <input type="hidden" name="product_id" value="{{ $product->id }}">
-                                                        <input type="hidden" name="price" value="{{ $product->price }}">
-                                                        <input type="hidden" name="quantity" value="1">
-                                                        {{ config('settings.site_currency_symbol') }} {{ $product->price }}
-                                                    </span>
+                                                    <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                                    <input type="hidden" name="price" value="{{ $product->price }}">
+                                                    <input type="hidden" name="quantity" value="1">
+                                                    @if ($product->price)
+                                                        <span class="btn-primary pay">
+                                                            {{ config('settings.site_currency_symbol') }}
+                                                            {{ $product->price }}
+                                                        </span>
+                                                    @else
+                                                        <a target="_blank"
+                                                            href="https://wa.me/{{ config('settings.site_whatsapp') }}?text={{ urlencode(
+                                                                "Hello I'm interested in: \nProduct: $product->name
+                                                                                                        \nBrand: {$product->brand->name}
+                                                                                                        \nPlease send me the price, thank you",
+                                                            ) }}"
+                                                            class="btn-primary offer" style="cursor: pointer"><i
+                                                                class="bx bxl-whatsapp"></i>Ask for Price</a>
+                                                    @endif
                                                 </div>
                                                 <a href="{{ route('single.product.page', $product->slug) }}">
                                                     <img src="{{ asset($product->image) }}" class="img-fluid prod-img"
@@ -88,7 +105,10 @@
                                                 </div>
 
                                                 <div class="cta-btn">
-                                                    <button type="button" disabled class="action-btn">Get Sample</button>
+                                                    <button type="button" data-product_id="{{ $product->id }}"
+                                                        class="wishlist-btn"
+                                                        style="border: none;width: 20px;height: 20px;background: none;"><i
+                                                            class="fa-solid fa-heart prod_cta"></i></button>
                                                     <button type="submit" class="action-btn">Buy Now</button>
                                                 </div>
                                             </form>
@@ -131,5 +151,26 @@
             })
         })
         // })
+
+        $(document).on('click', '.wishlist-btn', function() {
+            const product_id = $(this).data('product_id');
+            // console.log(product_id);
+
+            $.ajax({
+                url: "{{ route('product.add-to-wishlist', ':product_id') }}".replace(':product_id',
+                    product_id),
+                method: 'POST',
+                success: function(res) {
+                    if (res.status === 'success') {
+                        toastr.success(res.message);
+                    } else {
+                        toastr.error(res.message);
+                    }
+                },
+                error: function(error) {
+                    console.log(error);
+                }
+            });
+        })
     </script>
 @endpush

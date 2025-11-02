@@ -33,7 +33,7 @@ class ServiceController extends Controller
         $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required|string|max:1000',
-            'button_link' => 'required|string|max:500',
+            // 'button_link' => 'required|string|max:500',
             'status' => 'boolean|required',
             'icon' => 'required|string',
         ]);
@@ -41,7 +41,7 @@ class ServiceController extends Controller
         $service = new Service();
         $service->title = $request->title;
         $service->description = $request->description;
-        $service->button_link = $request->button_link;
+        // $service->button_link = $request->button_link;
         $service->status = $request->status;
         $service->icon = $request->icon;
         $service->save();
@@ -78,7 +78,7 @@ class ServiceController extends Controller
         $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required|string|max:1000',
-            'button_link' => 'required|string|max:500',
+            // 'button_link' => 'required|string|max:500',
             'status' => 'boolean|required',
             'icon' => 'required|string',
         ]);
@@ -86,7 +86,7 @@ class ServiceController extends Controller
         $service = Service::findOrFail($id);
         $service->title = $request->title;
         $service->description = $request->description;
-        $service->button_link = $request->button_link;
+        // $service->button_link = $request->button_link;
         $service->status = $request->status;
         $service->icon = $request->icon;
         $service->update();

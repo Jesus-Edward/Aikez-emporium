@@ -9,7 +9,7 @@
                     <i class="{{ $service->icon }}"></i>
                     <h3><a href="service-details.html">{{ $service->title }}</a></h3>
                     <p>{{ $service->description }}</p>
-                    <a href="{{ $service->button_link }}" class="get-btn">Get Service </a>
+                    {{-- <a href="{{ $service->button_link }}" class="get-btn">Get Service </a> --}}
                 </div>
             @endforeach
         </div>

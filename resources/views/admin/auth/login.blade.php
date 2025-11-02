@@ -29,6 +29,8 @@
     <link rel="stylesheet" href="{{ asset('backend/assets/css/toastr.min.css') }}">
     <link href="{{ asset('backend/assets/plugins/datatable/css/dataTables.bootstrap5.min.css') }}" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.5/dist/sweetalert2.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <title>Aikez Emp - Admin Login</title>
 </head>
 
@@ -71,11 +73,15 @@
                                                 @enderror
 											</div>
 
-											<div class="col-12">
+											<div class="col-12" style="position: relative">
 												<label for="" class="form-label">Password</label>
 												<div class="input-group" id="">
-													<input type="password" name="password" class="form-control border-end-0" id="" value="" placeholder="Enter Password"> <a href="javascript:;" class="input-group-text bg-transparent"><i class="bx bx-hide"></i></a>
+													<input type="password" id="loginPassword" name="password" class="form-control border-end-0" id="" value="" placeholder="Enter Password">
 												</div>
+
+                                                <div aria-hidden="true" style="position: absolute;bottom:10px;right:30px">
+                                                    <i class="fas fa-eye-slash" id="show-and-hide"></i>
+                                                </div>
 											</div>
 											<div class="col-md-6">
 												<div class="form-check form-switch">
@@ -109,9 +115,28 @@
 		</div>
 	</div>
 
+    <script src="{{ asset('backend/assets/js/jquery.min.js') }}"></script>
     <script src="{{ asset('backend/assets/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/js/all.min.js" integrity="sha512-6BTOlkauINO65nLhXhthZMtepgJSghyimIalb+crKRPhvhmsCdnIuGcVbR5/aQY2A+260iC1OPy1oCdB6pSSwQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 	<!--plugins-->
 
 </body>
 
 </html>
+{{-- @push('admin') --}}
+    <script>
+        $(document).on('click', '#show-and-hide', function() {
+            var inputField = $('#loginPassword');
+            var inputType = inputField.attr('type');
+
+            if (inputType === 'password') {
+                inputField.attr('type', 'text');
+                $(this).removeClass('fas fa-eye-slash').addClass('fas fa-eye');
+            }else if(inputType === 'text') {
+                inputField.attr('type', 'password');
+                $(this).removeClass('fas fa-eye').addClass('fas fa-eye-slash');
+            }
+        })
+    </script>
+{{-- @endpush --}}

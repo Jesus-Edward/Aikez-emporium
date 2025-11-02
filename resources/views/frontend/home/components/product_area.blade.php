@@ -52,12 +52,23 @@
                              <form id="addToCartForm">
                                  <div class="d-flex"
                                      style="justify-content: flex-end; margin-right:10px; position: absolute;bottom:130px;right:30px; z-index:10">
-                                     <span class="btn-primary offer">
-                                         <input type="hidden" name="product_id" value="{{ $product->id }}">
-                                         <input type="hidden" name="price" value="{{ $product->price }}">
-                                         <input type="hidden" name="quantity" value="1">
-                                         {{ config('settings.site_currency_symbol') }} {{ $product->price }}
-                                     </span>
+                                     <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                     <input type="hidden" name="price" value="{{ $product->price }}">
+                                     <input type="hidden" name="quantity" value="1">
+                                     @if ($product->price)
+                                         <span class="btn-primary offer">
+                                             {{ config('settings.site_currency_symbol') }} {{ $product->price }}
+                                         </span>
+                                     @else
+                                         <a target="_blank"
+                                             href="https://wa.me/{{ config('settings.site_whatsapp') }}?text={{ urlencode(
+                                                 "Hello I'm interested in: \nProduct: $product->name
+                                                                                         \nBrand: {$product->brand->name}
+                                                                                         \nPlease send me the price, thank you",
+                                             ) }}"
+                                             class="btn-primary offer" style="cursor: pointer"><i
+                                                 class="bx bxl-whatsapp"></i>Ask for Price</a>
+                                     @endif
                                  </div>
                                  <div class="content">
                                      <h3><a
@@ -73,11 +84,16 @@
                                          </ul>
                                          <div class="d-flex">
                                              {{-- <button style="border: none;width: 20px;height: 20px;background: none;"><i class="fa-solid fa-ticket-simple" style="margin-right: 4px"></i></button> --}}
-                                             <button type="submit" style="border: none;width: 20px;height: 20px;background: none;">
-                                                 <i class="fa-solid fa-shopping-basket prod_cta" style="margin-right: 4px"></i>
-                                            </button>
+                                             <button type="submit"
+                                                 style="border: none;width: 20px;height: 20px;background: none;">
+                                                 <i class="fa-solid fa-shopping-basket prod_cta"
+                                                     style="margin-right: 4px"></i>
+                                             </button>
 
-                                             <button type="button" data-product_id="{{ $product->id }}" class="wishlist-btn" style="border: none;width: 20px;height: 20px;background: none;"><i class="fa-solid fa-heart prod_cta"></i></button>
+                                             <button type="button" data-product_id="{{ $product->id }}"
+                                                 class="wishlist-btn"
+                                                 style="border: none;width: 20px;height: 20px;background: none;"><i
+                                                     class="fa-solid fa-heart prod_cta"></i></button>
                                          </div>
 
                                      </div>
@@ -93,28 +109,29 @@
      </div>
  </div>
 
-@push('frontend')
-    <script>
-        $(document).ready(function() {
-            $('.wishlist-btn').on('click', function() {
-                const product_id = $(this).data('product_id');
-                // console.log(product_id);
+ @push('frontend')
+     <script>
+         $(document).ready(function() {
+             $('.wishlist-btn').on('click', function() {
+                 const product_id = $(this).data('product_id');
+                 // console.log(product_id);
 
-                $.ajax({
-                    url: "{{ route('product.add-to-wishlist', ':product_id') }}".replace(':product_id', product_id),
-                    method: 'POST',
-                    success: function(res) {
-                        if (res.status === 'success') {
-                            toastr.success(res.message);
-                        }else {
-                            toastr.error(res.message);
-                        }
-                    },
-                    error: function(error) {
-                        console.log(error);
-                    }
-                });
-            })
-        })
-    </script>
-@endpush
+                 $.ajax({
+                     url: "{{ route('product.add-to-wishlist', ':product_id') }}".replace(
+                         ':product_id', product_id),
+                     method: 'POST',
+                     success: function(res) {
+                         if (res.status === 'success') {
+                             toastr.success(res.message);
+                         } else {
+                             toastr.error(res.message);
+                         }
+                     },
+                     error: function(error) {
+                         console.log(error);
+                     }
+                 });
+             })
+         })
+     </script>
+ @endpush

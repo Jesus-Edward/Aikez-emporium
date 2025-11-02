@@ -14,11 +14,13 @@ class GeneralSettingsController extends Controller
 {
     use FileUploadTrait;
 
-    public function index() {
+    public function index()
+    {
         return view('admin.settings.index');
     }
 
-    public function storeBasicSettings(BasicSettingsUpdateRequest $request) {
+    public function storeBasicSettings(BasicSettingsUpdateRequest $request)
+    {
         $validatedData = $request->validated();
 
         foreach ($validatedData as $key => $value) {
@@ -38,7 +40,8 @@ class GeneralSettingsController extends Controller
         return redirect()->back()->with($notification);
     }
 
-    public function storeMailSettings(MailSettingsUpdateRequest $request) {
+    public function storeMailSettings(MailSettingsUpdateRequest $request)
+    {
         $validatedData = $request->validated();
 
         foreach ($validatedData as $key => $value) {
@@ -58,7 +61,8 @@ class GeneralSettingsController extends Controller
         return redirect()->back()->with($notification);
     }
 
-    public function storeLogoSettings(Request $request) {
+    public function storeLogoSettings(Request $request)
+    {
         $validatedData = $request->validate([
             'logo' => ['nullable', 'image', 'max:5048'],
             'footer_logo' => ['nullable', 'image', 'max:5048'],

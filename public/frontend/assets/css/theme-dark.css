@@ -123,6 +123,18 @@
   background-color: #252525;
 }
 
+.theme-dark .blog-area {
+  background-color: #252525 !important;
+}
+
+/* .theme-dark .blog-area {
+  background-color: #252525 !important;
+} */
+
+.theme-dark .testimonial_area {
+    background: #252525 !important;
+}
+
 .theme-dark .section-bg-2 {
   background-color: #252525;
 }
@@ -913,7 +925,7 @@
 }
 
 .theme-dark .blog-card {
-  background-color: #252525;
+  background-color: #131313;
 }
 
 .theme-dark .blog-card::before {

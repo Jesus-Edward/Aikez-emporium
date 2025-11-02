@@ -7,7 +7,7 @@
 
         <div class="testimonials-container owl-carousel owl-theme pt-45">
             @foreach ($testimonials as $testimonial)
-                <div class="fp__single_testimonial">
+                <div class="fp__single_testimonial testimonial_area">
                     <div class="fp__testimonial_header d-flex flex-wrap align-items-center">
                         <div class="img">
                             <img src="{{ asset($testimonial->image) }}" alt="clients" class="img-fluid w-100">

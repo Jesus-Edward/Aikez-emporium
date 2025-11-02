@@ -35,7 +35,7 @@
                             @csrf
 
                             <div class="row">
-                                <div class="col-md-6 mb-2">
+                                <div class="col-md-4 mb-2">
                                     <div class="form-group">
                                         <label for="" class="form-label">Service Title</label>
                                         <input type="text" class="form-control" name="title" value="{{ old('title') }}">
@@ -45,13 +45,39 @@
                                     </div>
                                 </div>
 
-                                <div class="col-md-6 mb-2">
+                                {{-- <div class="col-md-6 mb-2">
                                     <div class="form-group">
                                         <label for="" class="form-label">Button Link</label>
                                         <input type="text" class="form-control" name="button_link" value="{{ old('button_link') }}">
                                         @error('button_link')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
+                                    </div>
+                                </div> --}}
+
+                                <div class="col-md-4 mb-2">
+                                    <div class="form-group">
+                                        <label for="" class="form-label">Service Icon</label>
+                                        <input type="text" class="form-control" name="icon" value="{{ old('icon') }}" id="">
+                                        @error('icon')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
+                                    </div>
+
+                                </div>
+
+                                <div class="col-md-4 mb-2">
+                                    <div class="form-group">
+                                        <label for="" class="form-label">Service Status</label>
+                                        <div class="selectric-wrapper selectric-form-control">
+                                                <select name="status" id="" class="form-control selectric">
+                                                    <option value="1">Active</option>
+                                                    <option value="0">Inactive</option>
+                                                </select>
+                                            </div>
+                                            @error('status')
+                                                <small class="text-danger">{{ $message }}</small>
+                                            @enderror
                                     </div>
                                 </div>
 
@@ -64,32 +90,6 @@
                                         @error('description')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6 mb-2">
-                                    <div class="form-group">
-                                        <label for="" class="form-label">Service Icon</label>
-                                        <input type="text" class="form-control" name="icon" value="{{ old('icon') }}" id="">
-                                        @error('icon')
-                                            <small class="text-danger">{{ $message }}</small>
-                                        @enderror
-                                    </div>
-
-                                </div>
-
-                                <div class="col-md-6 mb-2">
-                                    <div class="form-group">
-                                        <label for="" class="form-label">Service Status</label>
-                                        <div class="selectric-wrapper selectric-form-control">
-                                                <select name="status" id="" class="form-control selectric">
-                                                    <option value="1">Active</option>
-                                                    <option value="0">Inactive</option>
-                                                </select>
-                                            </div>
-                                            @error('status')
-                                                <small class="text-danger">{{ $message }}</small>
-                                            @enderror
                                     </div>
                                 </div>
                             </div>

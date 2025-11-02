@@ -42,9 +42,9 @@ class ServiceDataTable extends DataTable
                 $title = Str::limit($query->title, 50, '...');
                 return "<span class=''>$title</span>";
             })
-            ->addColumn('button_link', function ($query) {
-                return "<span class=''>$query->button_link</span>";
-            })
+            // ->addColumn('button_link', function ($query) {
+            //     return "<span class=''>$query->button_link</span>";
+            // })
             ->addColumn('description', function ($query) {
                 $description = Str::limit($query->description, 50, '...');
                 return "<span class=''>$description</span>";
@@ -97,7 +97,7 @@ class ServiceDataTable extends DataTable
         return [
             Column::make('icon'),
             Column::make('title'),
-            Column::make('button_link'),
+            // Column::make('button_link'),
             Column::make('description'),
             Column::make('status'),
             Column::make('created_at'),

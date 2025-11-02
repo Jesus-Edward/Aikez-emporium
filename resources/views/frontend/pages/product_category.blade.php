@@ -1,7 +1,12 @@
 @extends('frontend.layouts.master')
 @section('frontend')
+     <style>
+        .breadcrumb-img {
+            background-image: url('{{ asset(config("settings.breadcrumb_logo")) }}');
+        }
+    </style>
     <!-- Inner Banner -->
-    <div class="inner-banner inner-bg12">
+    <div class="inner-banner breadcrumb-img">
         <div class="container">
             <div class="inner-title">
                 <ul>
@@ -153,25 +158,26 @@
             loadProducts(url);
         })
 
-        $(document).on('submit', "#addToCartForm", function(e) {
-            e.preventDefault();
-            let form = $(this).serialize();
+        // $(document).ready(function() {
+            $(document).on('click', '.wishlist-btn', function() {
+                const product_id = $(this).data('product_id');
+                // console.log(product_id);
 
-            $.ajax({
-                method: 'POST',
-                url: "{{ route('product.add-to-cart') }}",
-                data: form,
-                success: function(res) {
-                    if (res.status === 'success') {
-                        $('.cart-num').text(res.count);
-                        toastr.success(res.message);
+                $.ajax({
+                    url: "{{ route('product.add-to-wishlist', ':product_id') }}".replace(':product_id', product_id),
+                    method: 'POST',
+                    success: function(res) {
+                        if (res.status === 'success') {
+                            toastr.success(res.message);
+                        }else {
+                            toastr.error(res.message);
+                        }
+                    },
+                    error: function(error) {
+                        console.log(error);
                     }
-                },
-                error: function(xhr, status, error) {
-                    let errorMessage = xhr.responseJSON.message;
-                    toastr.error(errorMessage);
-                },
+                });
             })
-        })
+        // })
     </script>
 @endpush

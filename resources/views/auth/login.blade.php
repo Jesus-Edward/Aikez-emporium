@@ -65,7 +65,11 @@
 
                                         <div class="col-12">
                                             <div class="form-group">
-                                                <input class="form-control" type="password" name="password" placeholder="Password">
+                                                <input class="form-control" type="password" id="loginPassword" name="password" placeholder="Password">
+                                            </div>
+
+                                            <div aria-hidden="true" style="position: absolute;bottom:222px;right:50px">
+                                                <i class="fas fa-eye-slash" id="show-and-hide"></i>
                                             </div>
                                         </div>
 
@@ -104,3 +108,21 @@
         </div>
         <!-- Sign In Area End -->
 @endsection
+@push('frontend')
+    <script>
+
+        $(document).on('click', '#show-and-hide', function() {
+            var inputField = $('#loginPassword');
+            var inputType = inputField.attr('type');
+
+            if (inputType === 'password') {
+                inputField.attr('type', 'text');
+                $(this).removeClass('fas fa-eye-slash').addClass('fas fa-eye');
+            }else if(inputType === 'text') {
+                inputField.attr('type', 'password');
+                $(this).removeClass('fas fa-eye').addClass('fas fa-eye-slash');
+            }
+        })
+
+    </script>
+@endpush

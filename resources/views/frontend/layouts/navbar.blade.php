@@ -86,7 +86,6 @@
             <li class="nav-item">
                 <a href="{{ route('all_blogs') }}" class="nav-link">
                     Blog
-                    <i class='bx bx-chevron-down'></i>
                 </a>
                 {{-- <ul class="dropdown-menu">
                     <li class="nav-item">

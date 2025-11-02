@@ -45,7 +45,7 @@
 
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="{{ asset('default-images/aikez-logo.JPG') }}">
+    <link rel="icon" type="image/png" href="{{ asset(config('settings.favicon_logo')) }}">
 
     <title>Aikez Emporium - World Tiles Resort</title>
 

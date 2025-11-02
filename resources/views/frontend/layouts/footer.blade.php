@@ -151,8 +151,9 @@
                             Copyright @
                             <script>
                                 document.write(new Date().getFullYear())
-                            </script> Atoli. All Rights Reserved by
-                            <a href="https://hibootstrap.com/" target="_blank">HiBootstrap</a>
+                            </script> {{ config('settings.site_name') }}.
+                            {{-- All Rights Reserved by {{ config('settings.site_name') }} --}}
+                            {{-- <a href="https://hibootstrap.com/" target="_blank">HiBootstrap</a> --}}
                         </p>
                     </div>
                 </div>

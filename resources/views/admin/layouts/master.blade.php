@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <!--favicon-->
-    <link rel="icon" href="{{ asset('default-images/aikez-logo.JPG') }}" type="image/png" />
+    <link rel="icon" href="{{ asset(config('settings.favicon_logo')) }}" type="image/png" />
     <!--plugins-->
     <link href="{{ asset('backend/assets/plugins/vectormap/jquery-jvectormap-2.0.2.css') }}" rel="stylesheet" />
     <link href="{{ asset('backend/assets/plugins/simplebar/css/simplebar.css') }}" rel="stylesheet" />
@@ -127,7 +127,7 @@
     <script src="{{ asset('backend/assets/plugins/datatable/js/dataTables.bootstrap5.min.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.5/dist/sweetalert2.all.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/js/all.min.js" integrity="sha512-6BTOlkauINO65nLhXhthZMtepgJSghyimIalb+crKRPhvhmsCdnIuGcVbR5/aQY2A+260iC1OPy1oCdB6pSSwQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    
+
 
     {{-- <script src="https://cdn.datatables.net/2.0.8/js/dataTables.min.js"></script> --}}
     {{-- <script src="https://cdn.datatables.net/2.0.8/js/dataTables.bootstrap4.min.js"></script> --}}

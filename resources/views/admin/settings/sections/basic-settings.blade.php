@@ -53,6 +53,15 @@
                                     </div>
                                     <div class="col-md-6 col-sm-12 mb-2">
                                         <div class="form-group">
+                                            <label for="" class="form-label">Site Whatsapp</label>
+                                            <input type="text" name="site_whatsapp" value="{{ config('settings.site_whatsapp') }}" class="form-control">
+                                        </div>
+                                        @error('site_whatsapp')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
+                                    </div>
+                                    <div class="col-md-6 col-sm-12 mb-2">
+                                        <div class="form-group">
                                             <label for="" class="form-label">Site Default Currency</label>
                                             <input type="text" name="site_default_currency" value="{{ config('settings.site_default_currency') }}" class="form-control">
                                         </div>

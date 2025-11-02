@@ -35,7 +35,7 @@
                             @csrf
                             @method('PUT')
                             <div class="row">
-                                <div class="col-md-6 mb-2">
+                                <div class="col-md-4 mb-2">
                                     <div class="form-group">
                                         <label for="" class="form-label">Service Title</label>
                                         <input type="text" class="form-control" name="title" value="{{ $service->title }}">
@@ -45,7 +45,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-md-6 mb-2">
+                                {{-- <div class="col-md-6 mb-2">
                                     <div class="form-group">
                                         <label for="" class="form-label">Button Link</label>
                                         <input type="text" class="form-control" name="button_link" value="{{ $service->button_link }}">
@@ -53,21 +53,9 @@
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
                                     </div>
-                                </div>
+                                </div> --}}
 
-                                <div class="col-md-12 mb-2">
-                                    <div class="form-group">
-                                        <label for="" class="form-label">Service Description</label>
-                                        <textarea type="text" class="form-control" name="description">
-                                            {{ $service->description }}
-                                        </textarea>
-                                        @error('description')
-                                            <small class="text-danger">{{ $message }}</small>
-                                        @enderror
-                                    </div>
-                                </div>
-
-                                 <div class="col-md-6 mb-2">
+                                 <div class="col-md-4 mb-2">
                                     <div class="form-group">
                                         <label for="" class="form-label">Service Icon</label>
                                         <input type="text" class="form-control" name="icon"  value="{{ $service->icon }}" id="">
@@ -78,7 +66,7 @@
 
                                 </div>
 
-                                <div class="col-md-6 mb-2">
+                                <div class="col-md-4 mb-2">
                                     <div class="form-group">
                                         <label for="" class="form-label">Banner Image</label>
                                         <div class="selectric-wrapper selectric-form-control">
@@ -90,6 +78,19 @@
                                             @error('status')
                                                 <small class="text-danger">{{ $message }}</small>
                                             @enderror
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-12 mb-2">
+                                    <div class="form-group">
+                                        <label for="" class="form-label">Service Description</label>
+                                        <textarea type="text" class="form-control" name="description">
+                                            {{ $service->description }}
+                                        </textarea>
+                                        @error('description')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
                                     </div>
                                 </div>
                             </div>

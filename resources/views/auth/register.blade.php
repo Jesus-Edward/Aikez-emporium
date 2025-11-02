@@ -125,22 +125,30 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-12">
+                                        <div class="col-12" style="position: relative">
                                             <div class="form-group">
-                                                <input class="form-control" type="password" name="password" placeholder="Password">
+                                                <input class="form-control" id="loginPassword" type="password" name="password" placeholder="Password">
                                                 @error('password')
                                                     <small class="tex-danger">{{ $message }}</small>
                                                 @enderror
                                             </div>
+
+                                            <div aria-hidden="true" style="position: absolute;bottom:28px;right:50px">
+                                                <i class="fas fa-eye-slash" id="show-and-hide"></i>
+                                            </div>
                                         </div>
 
-                                        <div class="col-12">
+                                        <div class="col-12" style="position: relative">
                                             <div class="form-group">
-                                                <input class="form-control" type="password" name="password_confirmation" placeholder="Confirm Password">
+                                                <input class="form-control" id="confirmPassword" type="password" name="password_confirmation" placeholder="Confirm Password">
+                                                @error('password_confirmation')
+                                                    <small class="tex-danger">{{ $message }}</small>
+                                                @enderror
                                             </div>
-                                            @error('password_confirmation')
-                                                <small class="tex-danger">{{ $message }}</small>
-                                            @enderror
+
+                                            <div aria-hidden="true" style="position: absolute;bottom:28px;right:50px">
+                                                <i class="fas fa-eye-slash" id="shows-and-hides"></i>
+                                            </div>
                                         </div>
 
                                         <div class="col-lg-12 col-md-12 text-center">
@@ -165,3 +173,31 @@
         </div>
         <!-- Sign Up Area End -->
 @endsection
+@push('frontend')
+    <script>
+        $(document).on('click', '#show-and-hide', function() {
+            var inputField = $('#loginPassword');
+            var inputType = inputField.attr('type');
+
+            if (inputType === 'password') {
+                inputField.attr('type', 'text');
+                $(this).removeClass('fas fa-eye-slash').addClass('fas fa-eye');
+            }else if(inputType === 'text') {
+                inputField.attr('type', 'password');
+                $(this).removeClass('fas fa-eye').addClass('fas fa-eye-slash');
+            }
+        })
+        $(document).on('click', '#shows-and-hides', function() {
+            var inputField = $('#confirmPassword');
+            var inputType = inputField.attr('type');
+
+            if (inputType === 'password') {
+                inputField.attr('type', 'text');
+                $(this).removeClass('fas fa-eye-slash').addClass('fas fa-eye');
+            }else if(inputType === 'text') {
+                inputField.attr('type', 'password');
+                $(this).removeClass('fas fa-eye').addClass('fas fa-eye-slash');
+            }
+        })
+    </script>
+@endpush
