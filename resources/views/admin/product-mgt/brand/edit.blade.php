@@ -54,7 +54,7 @@
                                             <select name="category" id="" class="form-control selectric">
                                                 <option value="">-- Select Category --</option>
                                                 @foreach ($categories as $category)
-                                                    <option value="{{ $category->id }}" @selected($product->category_id === $category->id)>
+                                                    <option value="{{ $category->id }}" @selected($brand->category_id === $category->id)>
                                                         {{ $category->name }}</option>
                                                 @endforeach
                                             </select>

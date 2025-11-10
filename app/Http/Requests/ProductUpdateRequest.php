@@ -27,18 +27,17 @@ class ProductUpdateRequest extends FormRequest
             'image3' => ['nullable', 'max:5048'],
             'image4' => ['nullable', 'max:5048'],
             "name" => ['required', 'max:255'],
-            "size_id" => ['required', 'integer'],
-            "texture" => ['required', 'string', 'max:255'],
-            "category" => ['required', 'integer'],
+            "size" => ['nullable'],
+            "texture" => ['nullable', 'string', 'max:255'],
+            "color_family" => ['nullable', 'string'],
             "brand" => ['required', 'integer'],
             "quantity" => ['required', 'numeric'],
             "short_description" => ['required', 'max:500'],
             "long_description" => ['nullable'],
             "price" => ['required', 'numeric'],
-            // "offer_price" => ['nullable', 'numeric'],
             "seo_title" => ['nullable', 'max:255'],
             "seo_description" => ['nullable', 'max:255'],
-            "status" => ['required', 'boolean', 'in:1,0']
+            "status" => ['required', 'boolean', 'in:1,0'],
         ];
     }
 }

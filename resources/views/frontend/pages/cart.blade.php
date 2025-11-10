@@ -165,7 +165,9 @@
                     <div class="cart">
                         <div class="d-flex justify-content-between">
                             <h6>Cart ({{ Cart::content()->count() }})</h6>
-                            <a href="{{ route('product.destroy.cart') }}" style="color: #000">Clear Cart</a>
+                            @if (Cart::content()->count() > 0)
+                                <a href="{{ route('product.destroy.cart') }}" style="color: #000">Clear Cart</a>
+                            @endif
                         </div>
 
                         @foreach (Cart::content() as $product)
@@ -215,7 +217,7 @@
                         @endforeach
 
                         @if (Cart::content()->count() === 0)
-                            <div class="d-flex justify-content-center" style="">
+                            <div class="d-flex justify-content-center text-dark" style="">
                                 Cart is empty!
                             </div>
                         @endif
@@ -296,7 +298,7 @@
                                     </div>
                                     <div class="form-check">
                                         <input class="form-check-input v_address" type="radio" name="address"
-                                            value="0">
+                                            value="pay_on_pickup">
                                     </div>
                                 </div>
 
@@ -658,17 +660,21 @@
         $(document).ready(function() {
             $('.v_address').prop('checked', false);
 
-            $('.v_address').on('click', function() {
+            $('.v_address').on('change', function() {
                 let addressId = $(this).val();
                 let deliveryFee = $('#delivery_fee');
                 let grandTotal = $('#final_total');
 
                 $.ajax({
                     method: 'GET',
-                    url: "{{ route('checkout.delivery-cal', ':id') }}".replace(":id", addressId),
+                    url: "{{ route('checkout.delivery-cal') }}",
+                    // .replace(":id", addressId),
                     // beforeSend: function() {
                     //     showLoader();
                     // },
+                    data: {
+                        id: addressId
+                    },
                     success: function(response) {
 
                         deliveryFee.text("{{ currencyPosition(':amount') }}"

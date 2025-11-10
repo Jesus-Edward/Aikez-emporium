@@ -8,11 +8,13 @@ class Brand extends Model
 {
     protected $guarded = [];
 
-    public function product() {
+    public function product()
+    {
         return $this->hasMany(Product::class, 'brand_id');
     }
 
-    public function category() {
+    public function category()
+    {
         return $this->belongsTo(Category::class);
     }
 }

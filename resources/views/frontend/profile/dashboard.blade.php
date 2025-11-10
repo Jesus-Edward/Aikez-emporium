@@ -90,6 +90,10 @@
             border: none !important;
         }
 
+            .profile_para {
+                color: var(--colorBlack) !important;
+            }
+
         @media (max-width: 768px) {
             .name {
                 left: 40% !important;

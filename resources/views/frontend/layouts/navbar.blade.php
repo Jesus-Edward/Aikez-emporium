@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md navbar-light ">
     <a class="navbar-brand" href="{{ url('/') }}">
-        <img src="{{ asset(config('settings.logo')) }}" height="40" width="80" class="logo-one"
+        <img src="{{ asset(config('settings.logo')) }}" class="fp__footer_logo" height="40" width="80" class="logo-one"
             alt="Logo">
         {{-- <img src="{{ asset('default-images/aikez-logo.JPG') }}" class="logo-two" alt="Logo"> --}}
     </a>
@@ -102,6 +102,11 @@
                     <i class='bx bx-chevron-down'></i>
                 </a>
                 <ul class="dropdown-menu">
+                    <li class="nav-item">
+                        <a href="{{ route('products.store') }}" class="nav-link">
+                            Our Store
+                        </a>
+                    </li>
                     <li class="nav-item">
                         <a href="{{ route('tiles.category') }}" class="nav-link">
                             Product Categories

@@ -16,7 +16,7 @@
                         </div>
                         <div class="buttons">
                             <button><a class="button-a" href="https://wa.me/{{ config('settings.site_whatsapp') }}?text={{ urlencode("Hello can I get a quota for some of your company's tiles?") }}">ASK QUOTA</a></button>
-                            <button><a href="{{ url($banner->button_link) }}">CHECK STORE</a></button>
+                            <button><a class="button-a" href="{{ url($banner->button_link) }}">CHECK STORE</a></button>
                         </div>
                     </div>
                 </div>
@@ -42,9 +42,8 @@
         <!-- next prev -->
 
         <div class="arrows">
-            <button id="prev">
-                << /button>
-                    <button id="next">></button>
+            <button id="prev"><</button>
+            <button id="next">></button>
         </div>
         <!-- time running -->
         <div class="time"></div>

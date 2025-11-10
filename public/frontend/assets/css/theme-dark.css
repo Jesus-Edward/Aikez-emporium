@@ -705,6 +705,10 @@
   color: #ffffff;
 }
 
+.theme-dark #address_h3 {
+    color: #ffffff !important;
+}
+
 .theme-dark .side-bar-plan ul li:hover a {
   color: #ffffff;
 }
@@ -924,6 +928,14 @@
   color: #ffffff;
 }
 
+.theme-dark .shopping_cart {
+    background-color: #ffffff !important;
+}
+
+.theme-dark .cart-num {
+    color: #1B2132 !important;
+}
+
 .theme-dark .blog-card {
   background-color: #131313;
 }
@@ -1095,4 +1107,11 @@
 .theme-dark .footer-bg {
   background-color: #0a0808;
 }
+
+.theme-dark .fp__footer_logo {
+  /* background-color: #0a0808; */
+    filter: invert(1) grayscale(100%) brightness(80%)
+}
+
+
 /*# sourceMappingURL=theme-dark.css.map */

@@ -1,4 +1,7 @@
 @extends('frontend.layouts.master')
+
+@section('seo_title', 'Foreign and Local Tiles Store')
+@section('seo_description', 'Checkout the best online tile store and purchase all sorts of tiles for your real estate decoration')
 @section('frontend')
      <style>
         .breadcrumb-img {

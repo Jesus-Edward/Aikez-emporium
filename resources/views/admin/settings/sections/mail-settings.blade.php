@@ -20,14 +20,16 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
-                            <form action="{{ route('admin.mail-settings.update') }}" method="POST" enctype="multipart/form-data">
+                            <form action="{{ route('admin.mail-settings.update') }}" method="POST"
+                                enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
                                 <div class="row">
                                     <div class="col-md-6 col-sm-12 mb-2">
                                         <div class="form-group">
                                             <label for="" class="form-label">Mail Mailer</label>
-                                            <input type="text" name="mail_mailer" value="{{ config('settings.mail_mailer') }}" class="form-control">
+                                            <input type="text" name="mail_mailer"
+                                                value="{{ config('settings.mail_mailer') }}" class="form-control">
                                         </div>
                                         @error('mail_mailer')
                                             <small class="text-danger">{{ $message }}</small>
@@ -36,7 +38,8 @@
                                     <div class="col-md-6 col-sm-12 mb-2">
                                         <div class="form-group">
                                             <label for="" class="form-label">Mail Host</label>
-                                            <input type="text" name="mail_host" value="{{ config('settings.mail_host') }}" class="form-control">
+                                            <input type="text" name="mail_host"
+                                                value="{{ config('settings.mail_host') }}" class="form-control">
                                         </div>
                                         @error('mail_host')
                                             <small class="text-danger">{{ $message }}</small>
@@ -45,7 +48,8 @@
                                     <div class="col-md-6 col-sm-12 mb-2">
                                         <div class="form-group">
                                             <label for="" class="form-label">Mail Port</label>
-                                            <input type="text" name="mail_port" value="{{ config('settings.mail_port') }}" class="form-control">
+                                            <input type="text" name="mail_port"
+                                                value="{{ config('settings.mail_port') }}" class="form-control">
                                         </div>
                                         @error('mail_port')
                                             <small class="text-danger">{{ $message }}</small>
@@ -54,7 +58,8 @@
                                     <div class="col-md-6 col-sm-12 mb-2">
                                         <div class="form-group">
                                             <label for="" class="form-label">Mail Encryption</label>
-                                            <input type="text" name="mail_encryption" value="{{ config('settings.mail_encryption') }}" class="form-control">
+                                            <input type="text" name="mail_encryption"
+                                                value="{{ config('settings.mail_encryption') }}" class="form-control">
                                         </div>
                                         @error('mail_encryption')
                                             <small class="text-danger">{{ $message }}</small>
@@ -63,7 +68,8 @@
                                     <div class="col-md-6 col-sm-12 mb-2">
                                         <div class="form-group">
                                             <label for="" class="form-label">Mail Username</label>
-                                            <input type="text" name="mail_username" value="{{ config('settings.mail_username') }}" class="form-control">
+                                            <input type="text" name="mail_username"
+                                                value="{{ config('settings.mail_username') }}" class="form-control">
                                         </div>
                                         @error('mail_username')
                                             <small class="text-danger">{{ $message }}</small>
@@ -72,7 +78,8 @@
                                     <div class="col-md-6 col-sm-12 mb-2">
                                         <div class="form-group">
                                             <label for="" class="form-label">Mail Password</label>
-                                            <input type="text" name="mail_password" value="{{ config('settings.mail_password') }}" class="form-control">
+                                            <input type="text" name="mail_password"
+                                                value="{{ config('settings.mail_password') }}" class="form-control">
                                         </div>
                                         @error('mail_password')
                                             <small class="text-danger">{{ $message }}</small>
@@ -82,7 +89,9 @@
                                     <div class="col-md-6 col-sm-12 mb-2">
                                         <div class="form-group">
                                             <label for="" class="form-label">Mail From Address</label>
-                                            <input type="text" name="mail_from_address" value="{{ config('settings.mail_from_address') }}" class="form-control">
+                                            <input type="text" name="mail_from_address"
+                                                value="{{ config('settings.mail_from_address') }}"
+                                                class="form-control">
                                         </div>
                                         @error('mail_from_address')
                                             <small class="text-danger">{{ $message }}</small>
@@ -91,7 +100,9 @@
                                     <div class="col-md-6 col-sm-12 mb-2">
                                         <div class="form-group">
                                             <label for="" class="form-label">Mail Received Address</label>
-                                            <input type="text" name="received_mail_address" value="{{ config('settings.received_mail_address') }}" class="form-control">
+                                            <input type="text" name="received_mail_address"
+                                                value="{{ config('settings.received_mail_address') }}"
+                                                class="form-control">
                                         </div>
                                         @error('received_mail_address')
                                             <small class="text-danger">{{ $message }}</small>

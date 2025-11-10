@@ -171,6 +171,16 @@
                                         <div class="invoice-detail-value">{{ currencyPosition($order->discount) }}
                                         </div>
                                     </div>
+                                    <div class="invoice-detail-item">
+                                        <div class="invoice-detail-name">Delivery Fee</div>
+                                        @if (!$order->delivery_charge)
+                                            <div class="invoice-detail-value">{{ currencyPosition($order->discount) }}
+                                            </div>
+                                        @else
+                                            <div class="invoice-detail-value">To be paid on Pickup
+                                            </div>
+                                        @endif
+                                    </div>
                                     <hr class="mt-2 mb-2">
                                     <div class="invoice-detail-item">
                                         <div class="invoice-detail-name" style="font-weight: bold">Total</div>

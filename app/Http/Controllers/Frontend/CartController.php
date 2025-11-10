@@ -101,27 +101,31 @@ class CartController extends Controller
         return view('frontend.pages.cart', compact('addresses', 'deliveryAreas'));
     }
 
-    function calculateDeliveryCharge($id)
+    function calculateDeliveryCharge(Request $request)
     {
-        try {
+        // try {
+        // dd($request);
+            $id = $request->id;
+            // dd($id);
+            if ($id === 'pay_on_pickup') {
 
-            if ($id != 0) {
+                $deliveryFee = 0;
+                $grandTotal = grandCartTotal();
 
+                return response(['status' => 'success', 'delivery_fee' => $deliveryFee, 'grand_total' => $grandTotal]);
+
+            } else {
                 $address = Address::with('deliveryArea')->findOrFail($id);
                 $deliveryFee = $address->deliveryArea->delivery_fee;
                 $grandTotal = grandCartTotal($deliveryFee);
 
                 return response(['status' => 'success', 'delivery_fee' => $deliveryFee, 'grand_total' => $grandTotal]);
-            } else {
-                $deliveryFee = 0;
-                $grandTotal = grandCartTotal();
 
-                return response(['status' => 'success', 'delivery_fee' => $deliveryFee, 'grand_total' => $grandTotal]);
             }
 
-        } catch (\Exception $e) {
-            logger($e);
-            return response(['status' => 'error', 'message' => 'Something went wrong in the frontend'], 422);
-        }
+        // } catch (\Exception $e) {
+        //     logger($e);
+        //     return response(['status' => 'error', 'message' => 'Something went wrong in the frontend'], 422);
+        // }
     }
 }

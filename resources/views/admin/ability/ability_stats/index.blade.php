@@ -78,7 +78,7 @@
                                         <label for="" class="form-label">Statistic
                                             Ability 2</label>
                                         <input type="text" name="statistic_ability2" class="form-control"
-                                            value="{{ $stat->value1 }}">
+                                            value="{{ $stat->value2 }}">
                                         @error('statistic_ability2')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror

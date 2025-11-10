@@ -6,12 +6,11 @@
                 <div class="row pt-45">
                     @foreach ($services as $service)
 
-                        <div class="col-lg-4 col-md-6">
+                        <div class="col-lg-3 col-md-6">
                             <div class="choose-card">
                                 <i class="{{ $service->icon }}"></i>
                                 <h3>{{ $service->title }}</h3>
                                 <p>{{ $service->description }}</p>
-                                <a href="{{ $service->button_link }}" class="read-btn">Read More</a>
                             </div>
                         </div>
                     @endforeach

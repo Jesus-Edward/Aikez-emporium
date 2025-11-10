@@ -149,7 +149,7 @@
                                 @endif
                             </div>
 
-                            <div class="wishlist">
+                            <div class="wishlist wishlist-btn" data-product_id="{{ $product->id }}">
                                 <i class="fas fa-heart"
                                     style="font-size: 30px;position: absolute; top: 11px; left: 6px;"></i>
                             </div>
@@ -218,18 +218,26 @@
                                     </div>
                                 </div>
 
-                                <div class="room-card-content">
-                                    <h3>
-                                        <a
-                                            href="{{ route('single.product.page', $product->slug) }}">{{ \Str::limit($product->name, 15, '...') }}</a>
-                                    </h3>
-                                    <span>{{ config('settings.site_currency_symbol') }}{{ $product->price }}/{{ config('settings.site_selling_unit') }}</span>
-                                    <div class="d-flex">
-                                        <i class="fa-solid fa-ticket-simple" style="margin-right: 4px"></i>
-                                        <i class="fa-solid fa-shopping-basket" style="margin-right: 4px"></i>
-                                        <i class="fa-solid fa-heart"></i>
+                                <form class="RPaddToCartForm">
+                                    @csrf
+                                    <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                     <input type="hidden" name="price" value="{{ $product->price }}">
+                                     <input type="hidden" name="quantity" value="1">
+                                    <div class="room-card-content">
+                                        <h3>
+                                            <a
+                                                href="{{ route('single.product.page', $product->slug) }}">{{ \Str::limit($product->name, 15, '...') }}</a>
+                                        </h3>
+                                        <span>{{ config('settings.site_currency_symbol') }}{{ $product->price }}/{{ config('settings.site_selling_unit') }}</span>
+                                        <div class="d-flex">
+                                            {{-- <i class="fa-solid fa-ticket-simple" style="margin-right: 4px"></i> --}}
+                                            <button type="submit" style="border: none; background:none"><i class="fa-solid fa-shopping-basket" style="margin-right: 4px;"></i></button>
+
+                                            <button type="button" class="wishlist-btn" data-product_id="{{ $product->id }}" style="border: none; background:none"><i class="fa-solid fa-heart"></i></button>
+                                        </div>
                                     </div>
-                                </div>
+                                </form>
+
                             </div>
                         </div>
                     </div>
@@ -271,7 +279,51 @@
                         toastr.error(errorMessage);
                     },
                 })
-            })
+            });
+
+            $(".RPaddToCartForm").on('submit', function(e) {
+                e.preventDefault();
+                let form = $(this).serialize();
+
+                $.ajax({
+                    method: 'POST',
+                    url: "{{ route('product.add-to-cart') }}",
+                    data: form,
+                    success: function(res) {
+                        if (res.status === 'success') {
+                            $('.cart-num').text(res.count);
+                            toastr.success(res.message);
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        let errorMessage = xhr.responseJSON.message;
+                        toastr.error(errorMessage);
+                    },
+                })
+            });
+
+             $(document).ready(function() {
+             $('.wishlist-btn').on('click', function() {
+                 const product_id = $(this).data('product_id');
+                 // console.log(product_id);
+
+                 $.ajax({
+                     url: "{{ route('product.add-to-wishlist', ':product_id') }}".replace(
+                         ':product_id', product_id),
+                     method: 'POST',
+                     success: function(res) {
+                         if (res.status === 'success') {
+                             toastr.success(res.message);
+                         } else {
+                             toastr.error(res.message);
+                         }
+                     },
+                     error: function(error) {
+                         console.log(error);
+                     }
+                 });
+             })
+         })
         })
     </script>
 @endpush

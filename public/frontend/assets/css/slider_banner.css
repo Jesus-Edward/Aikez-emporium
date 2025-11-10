@@ -97,11 +97,11 @@ header a{
     color: inherit;
 }
 
-.carousel .list .item .buttons button:nth-child(2) {
+/* .carousel .list .item .buttons button:nth-child(2) {
     background-color: transparent;
     border: 1px solid #fff;
     color: #eee;
-}
+} */
 
 /* thumbail */
 .thumbnail {

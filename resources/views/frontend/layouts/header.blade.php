@@ -1,10 +1,10 @@
 <div class="navbar-area">
     <!-- Menu For Mobile Device -->
     <div class="mobile-nav">
-        <a href="index.html" class="logo">
-            <img src="{{ asset(config('settings.logo')) }}" height="40" width="80" class="logo-one"
+        <a href="{{ url('/') }}" class="logo">
+            <img src="{{ asset(config('settings.logo')) }}" height="40" class="fp__footer_logo" width="80" class="logo-one"
                 alt="Logo">
-            <img src="{{ asset(config('settings.logo')) }}" class="logo-two" alt="Logo">
+            {{-- <img src="{{ asset(config('settings.logo')) }}" class="logo-two fp__footer_logo" alt="Logo"> --}}
         </a>
     </div>
 
@@ -34,14 +34,20 @@
             <div class="dot-menu" style="display:flex; justify-content:space-between; font-size: 2rem">
                 <div style="position:relative">
                     <a href="{{ route('product.cart.page') }}" style="text-decoration: none; position: relative;top: -11px;">
-                        <i class="bx bx-cart" style="margin-right: 25px;"></i>
+                        <i class="bx bx-cart text-dark nav_cart_profile" style="margin-right: 25px;"></i>
                     </a>
                     <div class="shopping_cart">
                         <span class="cart-num text-white text-center"
                             style="display: flex; justify-content:center; align-items:center; font-size:14px;margin-top: -2px;">{{ Cart::content()->count() }}</span>
                     </div>
                 </div>
-                <i class="bx bx-user-circle"></i>
+                <div class="option-item">
+                <div class="menu-icon">
+                    <a href="{{ route('user.profile.dashboard') }}" class="menu-icon-one">
+                        <i class='bx bx-user-circle text-dark nav_cart_profile'></i>
+                    </a>
+                </div>
+            </div>
             </div>
         </div>
     </div>

@@ -47,7 +47,9 @@ class FrontendController extends Controller
         }])->where('status', 1)->get();
         $brands = Brand::where('status', 1)->get();
         $blogs = BlogPost::with('category')->latest()->take(4)->get();
-        return view('frontend.home.home', compact('banners', 'about', 'services', 'ability', 'stat', 'teams', 'testimonials', 'answers', 'categories', 'brands', 'brand_products', 'blogs'));
+        $cates = Category::where('status', 1)->get();
+        $sizes = Size::where('status', 1)->get();
+        return view('frontend.home.home', compact('banners', 'about', 'cates', 'sizes', 'services', 'ability', 'stat', 'teams', 'testimonials', 'answers', 'categories', 'brands', 'brand_products', 'blogs'));
     }
 
     public function contact()
@@ -70,7 +72,10 @@ class FrontendController extends Controller
         $stat = AbilityStat::first();
         $teams = Team::where('status', 1)->get();
         $testimonials = Testimonial::where('status', 1)->get();
-        return view('frontend.pages.about', compact('about', 'services', 'ability', 'stat', 'teams', 'testimonials'));
+        $cates = Category::where('status', 1)->get();
+        $brands = Brand::where('status', 1)->get();
+        $sizes = Size::where('status', 1)->get();
+        return view('frontend.pages.about', compact('about', 'services', 'ability', 'cates', 'brands', 'sizes', 'stat', 'teams', 'testimonials'));
     }
 
     public function faq()
@@ -296,5 +301,62 @@ class FrontendController extends Controller
         $categories = BlogCategory::latest()->where('status', 1)->get();
         $latest_blogs = BlogPost::latest()->limit(3)->where(['status' => 1])->get();
         return view('frontend.pages.all_blogs', compact('blogs', 'categories', 'latest_blogs'));
+    }
+
+    public function productsStore() {
+        $searchProducts = session('searched_products');
+        $filters = session('filters');
+
+        if ($searchProducts) {
+            $products = $searchProducts;
+            session()->forget(['searched_products', 'filters']);
+        }else {
+            $products = Product::with(['brand.category', 'size'])->paginate(20);
+        }
+
+        return view('frontend.pages.store', compact('products', 'filters'));
+    }
+
+    public function searchProducts(Request $request) {
+        $category_id = $request->category_id;
+        $brand_id = $request->brand_id;
+        $size_id = $request->size_id;
+
+        $notice = array(
+            'message' => 'No product was searched!',
+            'alert-type' => 'info'
+        );
+
+        if (!($category_id) && !$brand_id && !$size_id) {
+            return redirect()->back()->with($notice);
+            // throw ValidationException::withMessages(['No product was searched']);
+        }
+
+        $products = Product::query()->when($brand_id, fn($q) => $q->where('brand_id', $brand_id))
+                    ->when($size_id, fn($q) => $q->where('size_id', $size_id))
+                    ->when('category_id', function($q) use($category_id) {
+                        $q->whereHas('brand', fn($b) => $b->where('category_id', $category_id));
+                    })
+                    ->with('brand.category', 'size')
+                    ->paginate(20);
+
+        session([
+            'searched_products' => $products,
+            'filters' => [
+                'category' => $category_id,
+                'brand' => $brand_id,
+                'size' => $size_id
+            ],
+        ]);
+
+        return redirect()->route('products.store');
+    }
+
+    public function getBrands($categoryId = null) {
+        $brands = Brand::select('id', 'name')->orderBy('name');
+        if ($categoryId && $categoryId !== 'all') {
+            $brands->where('category_id', $categoryId);
+        }
+        return response()->json($brands->get());
     }
 }

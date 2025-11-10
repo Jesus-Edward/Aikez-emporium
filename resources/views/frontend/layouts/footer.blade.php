@@ -1,3 +1,9 @@
+<style>
+    /* .footer-para {
+        color: #ffffff !important;
+    } */
+</style>
+
 <footer class="footer-area footer-bg">
     <div class="container">
         <div class="footer-top pt-100 pb-70">
@@ -5,14 +11,13 @@
                 <div class="col-lg-3 col-md-6">
                     <div class="footer-widget">
                         <div class="footer-logo">
-                            <a href="index.html">
-                                <img src="{{ asset(config('settings.footer_logo')) }}" height="40" width="80"
+                            <a href="{{ url('/') }}">
+                                <img src="{{ asset(config('settings.footer_logo')) }}" class="fp__footer_logo" height="40" width="80"
                                     alt="Images">
                             </a>
                         </div>
                         <p>
-                            Aenean finibus convallis nisl sit amet hendrerit. Etiam blandit velit non lorem mattis, non
-                            ultrices eros bibendum .
+                            Below are quick links to navigate our website, be free.
                         </p>
                         <ul class="footer-list-contact">
                             <li>
@@ -33,40 +38,40 @@
 
                 <div class="col-lg-3 col-md-6">
                     <div class="footer-widget pl-5">
-                        <h3>Links</h3>
+                        <h3 class="footer_para">Links</h3>
                         <ul class="footer-list">
                             <li>
-                                <a href="{{ route('frontend.about') }}" target="_blank">
+                                <a href="{{ route('frontend.about') }}">
                                     <i class='bx bx-caret-right'></i>
                                     About Us
                                 </a>
                             </li>
                             {{-- <li>
-                                <a href="services-1.html" target="_blank">
+                                <a href="services-1.html">
                                     <i class='bx bx-caret-right'></i>
                                     Services
                                 </a>
                             </li> --}}
                             <li>
-                                <a href="{{ route('frontend.team') }}" target="_blank">
+                                <a href="{{ route('frontend.team') }}">
                                     <i class='bx bx-caret-right'></i>
                                     Team
                                 </a>
                             </li>
                             {{-- <li>
-                                <a href="gallery.html" target="_blank">
+                                <a href="gallery.html">
                                     <i class='bx bx-caret-right'></i>
                                     Gallery
                                 </a>
                             </li> --}}
                             <li>
-                                <a href="{{ route('frontend.terms.conditions') }}" target="_blank">
+                                <a href="{{ route('frontend.terms.conditions') }}">
                                     <i class='bx bx-caret-right'></i>
                                     Terms
                                 </a>
                             </li>
                             {{-- <li>
-                                <a href="{{ route() }}" target="_blank">
+                                <a href="{{ route() }}">
                                     <i class='bx bx-caret-right'></i>
                                     Privacy Policy
                                 </a>
@@ -77,34 +82,34 @@
 
                 <div class="col-lg-3 col-md-6">
                     <div class="footer-widget">
-                        <h3>Useful Links</h3>
+                        <h3 class="footer_para">Useful Links</h3>
                         <ul class="footer-list">
                             <li>
-                                <a href="{{ url('/') }}" target="_blank">
+                                <a href="{{ url('/') }}">
                                     <i class='bx bx-caret-right'></i>
                                     Home
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('all_blogs') }}" target="_blank">
+                                <a href="{{ route('all_blogs') }}">
                                     <i class='bx bx-caret-right'></i>
                                     Blog
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('frontend.faq') }}" target="_blank">
+                                <a href="{{ route('frontend.faq') }}">
                                     <i class='bx bx-caret-right'></i>
                                     FAQ
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('frontend.testimonial') }}" target="_blank">
+                                <a href="{{ route('frontend.testimonial') }}">
                                     <i class='bx bx-caret-right'></i>
                                     Testimonials
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('frontend.contact') }}" target="_blank">
+                                <a href="{{ route('frontend.contact') }}">
                                     <i class='bx bx-caret-right'></i>
                                     Contact Us
                                 </a>
@@ -115,10 +120,9 @@
 
                 <div class="col-lg-3 col-md-6">
                     <div class="footer-widget">
-                        <h3>Newsletter</h3>
+                        <h3 class="footer_para">Newsletter</h3>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Nullam tempor eget ante fringilla rutrum aenean sed venenatis .
+                            To stay in touch with our latest development, sign up to our newsletter
                         </p>
                         <div class="footer-form">
                             <form id="newsletterForm">

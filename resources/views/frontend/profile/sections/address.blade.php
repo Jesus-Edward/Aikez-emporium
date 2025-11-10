@@ -3,13 +3,12 @@
     <div class="fp_dashboard_body address_body">
 
         <div class="d-flex justify-content-between align-items-center mb-4">
-            <h3>Address</h3>
+            <h3 class="" id="">Address</h3>
             <a class="dash_add_new_address" style="width: 100px"><i class="fas fa-plus"></i></a>
         </div>
 
         <style>
             .fp_dashboard_address li::marker {
-                display: none !important;
                 content: '' !important
             }
         </style>
@@ -23,7 +22,7 @@
                                 <div class="form-check">
                                     <label class="form-check-label">
 
-                                        <span class="address">{{ @$userAddress->address }},
+                                        <span class="address profile_para">{{ @$userAddress->address }},
                                             {{ @$userAddress->deliveryArea?->area_name }}</span>
 
                                     </label>
@@ -108,7 +107,7 @@
                         @csrf
                         <div class="row">
                             <div class="col-12">
-                                <h4>Edit Address</h4>
+                                <h4 class="profile_para">Edit Address</h4>
                             </div>
 
                             <div class="col-md-12 col-lg-12 col-xl-12">

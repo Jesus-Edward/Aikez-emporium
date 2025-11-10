@@ -40,7 +40,7 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <title>Aikez Emp - Admin Dashboard</title>
+    <title>{{ config('settings.site_name') }} - Admin Dashboard</title>
 
     <style>
          .toastr-container{
@@ -68,8 +68,9 @@
     </style>
 
     <script>
-        var pusherKey = "{{ config('settings.pusher_app_key') }}"
-        var pusherCluster = "{{ config('settings.pusher_cluster') }}"
+        var pusherKey = "{{ config('settings.pusher_app_key') }}";
+        var pusherCluster = "{{ config('settings.pusher_cluster') }}";
+
     </script>
 
     @vite(['resources/js/app.js'])

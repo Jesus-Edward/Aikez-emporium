@@ -31,8 +31,12 @@
                             <div class="section-title">
                                 <h2>{{ $contact->up_title }}</h2>
                             </div>
-                            <div class="contact-img">
+                            <div class="contact-img" style="position: relative">
                                 <img src="{{ asset($contact->up_image) }}" alt="Images">
+
+                                <div style="position: absolute; top:20px; right: 20px; border-radius:50%; width:50px; height:50px">
+                                    <a href="https://wa.me/{{ config('settings.site_whatsapp') }}" target="_blank"><i class="fa-brands fa-square-whatsapp" style="font-size: 40px; color:#ffffff"></i></a>
+                                </div>
                             </div>
                         </div>
                     </div>

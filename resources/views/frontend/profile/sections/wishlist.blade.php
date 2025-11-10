@@ -1,8 +1,8 @@
 <div class="tab-pane fade" id="wishlist" role="tabpanel" aria-labelledby="wishlist-tab">
 <style>
-    p,h1,h2,h3 {
+    /* p,h1,h2,h3 {
         color: #000 !important;
-    }
+    } */
 </style>
     <div class="fp_dash_personal_info">
         <h3> Wishlist</h3>

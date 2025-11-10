@@ -26,7 +26,7 @@ class BasicSettingsUpdateRequest extends FormRequest
             'company_address' => ['required', 'string', 'max:255'],
             'site_email' => ['nullable', 'email', 'max:255'],
             'site_phone' => ['nullable', 'string', 'max:50'],
-            'site_whatsapp' => ['required', 'integer', 'max:50'],
+            'site_whatsapp' => ['required', 'string'],
             'site_default_currency' => ['required', 'max:5'],
             'site_currency_symbol' => ['required', 'max:5'],
             'site_currency_symbol_position' => ['required', 'max:20'],

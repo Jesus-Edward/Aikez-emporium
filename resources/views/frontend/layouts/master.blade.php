@@ -47,7 +47,15 @@
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="{{ asset(config('settings.favicon_logo')) }}">
 
-    <title>Aikez Emporium - World Tiles Resort</title>
+    <!-- SEO Section -->
+    <meta title="title" content="@yield('seo_title', config('settings.seo_title'))">
+    <meta title="description" content="@yield('seo_description', config('settings.seo_description'))">
+    <meta title="og:title" content="{{ config('settings.seo_title') }}">
+    <meta title="og:description" content="{{ config('settings.seo_description') }}">
+    <meta title="twitter:title" content="{{ config('settings.seo_title') }}">
+    <meta title="twitter:description" content="{{ config('settings.seo_description') }}">
+
+    <title>{{ config('settings.site_name') }} - World Tiles Resort</title>
 
     <style>
          .toastr-container{

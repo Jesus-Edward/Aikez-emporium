@@ -35,7 +35,7 @@
 
 <div class="row">
     @foreach ($products as $product)
-        <div class="col-md-6 col-sm-12 col-lg-3 mb-4 wow fadeInUp" data-wow-duration="1s"">
+        <div class="col-md-6 col-sm-12 col-lg-3 mb-4 wow fadeInUp" data-wow-duration="1s">
             <div class="card size">
                 <form id="addToCartForm">
                     @csrf
@@ -63,7 +63,7 @@
                         </a>
                         <div class="body-details my-4">
                             <a href="{{ route('single.product.page', $product->slug) }}">
-                                <h5>{{ $product->name }}</h5>
+                                <h5>{{ Str::limit($product->name, 17, ' ...') }}</h5>
                             </a>
                             <span>{{ $product->brand->name }}</span>
                         </div>

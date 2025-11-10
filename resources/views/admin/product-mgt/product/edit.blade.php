@@ -83,7 +83,7 @@
                                     <div class="form-group">
                                         <label for="" class="form-label">Size</label>
                                         <div class="selectric-wrapper selectric-form-control">
-                                            <select name="category" id="" class="form-control selectric">
+                                            <select name="size" id="" class="form-control selectric">
                                                 <option value="">-- Select Size --</option>
                                                 @foreach ($sizes as $size)
                                                     <option value="{{ $size->id }}" @selected($product->size === $category->id)>

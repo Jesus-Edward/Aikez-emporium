@@ -44,7 +44,7 @@
                  @endphp --}}
 
                  @foreach ($category->products as $product)
-                     <div class="col-lg-4 col-s-6 {{ $category->slug }} wow fadeInUp" data-wow-duration="1s"">
+                     <div class="col-lg-3 col-md-6 col-sm-6 {{ $category->slug }} wow fadeInUp" data-wow-duration="1s"">
                          <div class="room-item" style="position: relative">
                              <a href="{{ route('single.product.page', $product->slug) }}">
                                  <img src="{{ asset($product->image) }}" class="img-fluid prod-img" alt="Images">
@@ -72,7 +72,7 @@
                                  </div>
                                  <div class="content">
                                      <h3><a
-                                             href="{{ route('single.product.page', $product->slug) }}">{{ $product->name }}</a>
+                                             href="{{ route('single.product.page', $product->slug) }}">{{ Str::limit($product->name, 17, ' ...') }}</a>
                                      </h3>
 
                                      <div style="display: flex; justify-content: space-between; align-items: center">
@@ -87,13 +87,13 @@
                                              <button type="submit"
                                                  style="border: none;width: 20px;height: 20px;background: none;">
                                                  <i class="fa-solid fa-shopping-basket prod_cta"
-                                                     style="margin-right: 4px"></i>
+                                                     style="margin-right: 4px; color:blue"></i>
                                              </button>
 
                                              <button type="button" data-product_id="{{ $product->id }}"
                                                  class="wishlist-btn"
                                                  style="border: none;width: 20px;height: 20px;background: none;"><i
-                                                     class="fa-solid fa-heart prod_cta"></i></button>
+                                                     class="fa-solid fa-heart prod_cta" style="color: blue"></i></button>
                                          </div>
 
                                      </div>

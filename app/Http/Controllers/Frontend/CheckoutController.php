@@ -12,12 +12,23 @@ class CheckoutController extends Controller
     function checkoutRedirectPayment(Request $request)
     {
         $request->validate([
-            'id' => ['required', 'integer'],
+            'id' => ['required'],
             'order_type' => 'required|string|in:buy_tiles,get_sample'
         ]);
 
 
         $orderType = $request->order_type;
+        if ($request->id === 'pay_on_pickup') {
+            $selectedArea = 'N/A';
+
+            session()->put('address', $selectedArea);
+            session()->put('delivery_fee', 0);
+            session()->put('address_id', 'pay_on_pickup');
+            session()->put('order_type', $orderType);
+
+            return response(['redirect_url' => route('checkout.payment.index')]);
+        }
+        
         $address = Address::with(['deliveryArea'])->findOrFail($request->id);
 
         $selectedArea = $address->address . ', Area: ' . $address->deliveryArea?->area_name;

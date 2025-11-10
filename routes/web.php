@@ -34,6 +34,7 @@ use App\Http\Controllers\Frontend\PaymentGatewayController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SocialLinkController;
 use App\Models\Address;
+use App\Models\GeneralSetting;
 use Illuminate\Support\Facades\Broadcast;
 use Illuminate\Support\Facades\Route;
 
@@ -167,17 +168,19 @@ Route::get('/product/cart/page', [CartController::class, 'viewCart'])->name('pro
 Route::post('/apply-coupon', [FrontendController::class, 'applyCoupon'])->name('apply-coupon');
 /**destroy coupon route */
 Route::get('/destroy-coupon', [FrontendController::class, 'destroyCoupon'])->name('destroy-coupon');
-Route::get('/checkout/{id}/delivery-cal', [CartController::class, 'calculateDeliveryCharge'])->name('checkout.delivery-cal');
+Route::get('/checkout/delivery-cal', [CartController::class, 'calculateDeliveryCharge'])->name('checkout.delivery-cal');
 Route::post('/paystack/checkout', [PaymentGatewayController::class, 'payWithPaystack'])->name('paystack.make-payment');
 Route::get('paystack/callback', [PaymentGatewayController::class, 'callback'])->name('paystack.callback');
 Route::post('/product/add-to-wishlist/{productId}', [FrontendController::class, 'addToWishlist'])->name('product.add-to-wishlist');
 Route::get('/guest/wishlist', [FrontendController::class, 'showGuestWishlist'])->name('guest.wishlist');
 Route::get('/blog/details/{slug}', [FrontendController::class, 'blogDetails'])->name('blog.details');
 Route::get('/blog/category/list/{id}', [FrontendController::class, 'categoryBlogs']);
-Route::get('blogs', [FrontendController::class, 'blogs'])->name('blogs');
-Route::get('all_blogs', [FrontendController::class, 'AllBlogs'])->name('all_blogs');
-Route::post('newsletter/subscribe', [NewsletterController::class, 'subscribeToNewsletter'])->name('subscribe.newsletter');
+Route::get('/blogs', [FrontendController::class, 'blogs'])->name('blogs');
+Route::get('/all_blogs', [FrontendController::class, 'AllBlogs'])->name('all_blogs');
+Route::post('/newsletter/subscribe', [NewsletterController::class, 'subscribeToNewsletter'])->name('subscribe.newsletter');
 Route::get('/newsletter/unsubscribe/{unsubscribe_token}', [NewsletterController::class, 'unsubscribeNewsletter'])->name('newsletter.unsubscribe');
-
+Route::get('/products/store', [FrontendController::class, 'productsStore'])->name('products.store');
+Route::get('/search/products', [FrontendController::class, 'searchProducts'])->name('search.products');
+Route::get('/get-brands/{category_id?}', [FrontendController::class, 'getBrands'])->name('get.brands.by.category');
 
 require __DIR__.'/auth.php';
