@@ -427,12 +427,12 @@ CHECKOUT PAGE START
 }
 
 .fp_dash_personal_info h4 a span {
-    color: var(--colorWhite);
+    color: #fff;
 }
 
-.fp_dash_personal_info h4 a:hover {
+/* .fp_dash_personal_info h4 a:hover {
     background: var(--colorBlack);
-}
+} */
 
 .fp_dash_personal_info h4 a .cancel {
     display: none;

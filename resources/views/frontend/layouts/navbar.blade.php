@@ -36,7 +36,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a href="{{ route('tiles.category') }}" class="nav-link">
+                        <a href="{{ route('products.store') }}" class="nav-link">
                             Store
                         </a>
                     </li>

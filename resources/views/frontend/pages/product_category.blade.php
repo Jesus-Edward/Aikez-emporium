@@ -85,9 +85,9 @@
         <div class="container-fluid">
             <h2 class="mb-4 text-center">Our Tiles Categories</h2>
 
-            <div class="d-flex flex-wrap justify-content-center wow fadeInUp" data-wow-duration="1s"" id="cat-btn">
+            <div class="d-flex flex-wrap justify-content-center wow fadeInUp" data-wow-duration="1s" id="cat-btn">
                 @foreach ($categories as $category)
-                    <button data-category-id="{{ $category->id }}" class="category-btn "
+                    <button data-category-id="{{ $category->id }}" class="category-btn" style="margin-top: 10px"
                         >{{ $category->name }}</button>
                 @endforeach
             </div>

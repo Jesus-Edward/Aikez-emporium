@@ -202,11 +202,11 @@
     <div class="room-details-other pb-70">
         <div class="container">
             <div class="room-details-text">
-                <h2>Our Related Offer</h2>
+                <h2>Our Related Products</h2>
             </div>
 
             <div class="row ">
-                @foreach ($related_products as $product)
+                @forelse ($related_products as $product)
                     <div class="col-lg-3 wow fadeInLeft" data-wow-duration="1s"">
                         <div class="room-card-two">
                             <div class="row align-items-center">
@@ -241,7 +241,11 @@
                             </div>
                         </div>
                     </div>
-                @endforeach
+                @empty
+                    <div class="text-center">
+                        <p>No related products associated with the above product!</p>
+                    </div>
+                @endforelse
             </div>
         </div>
     </div>

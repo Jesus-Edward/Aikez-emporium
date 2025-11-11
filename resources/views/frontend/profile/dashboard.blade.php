@@ -1,7 +1,13 @@
 @extends('frontend.layouts.master')
 @section('frontend')
+
+    <style>
+        .breadcrumb-img {
+            background-image: url('{{ asset(config("settings.breadcrumb_logo")) }}');
+        }
+    </style>
     <!-- Inner Banner -->
-    <div class="inner-banner inner-bg12">
+    <div class="inner-banner breadcrumb-img">
         <div class="container">
             <div class="inner-title">
                 <ul>

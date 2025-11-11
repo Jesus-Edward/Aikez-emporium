@@ -57,10 +57,10 @@ class ProductController extends Controller
         // $product->category_id = $request->category;
         $product->brand_id = $request->brand;
         $product->status = $request->status;
-        $product->image = $this->uploadImage($request, 'image');
-        $product->image2 = !empty($request->image2) ? $this->uploadImage($request, 'image2') : null;
-        $product->image3 = !empty($request->image3) ? $this->uploadImage($request, 'image3') : null;
-        $product->image4 = !empty($request->image4) ? $this->uploadImage($request, 'image4') : null;
+        $product->image = $this->uploadImage($request, 'image', NULL, '/uploads/product-images');
+        $product->image2 = !empty($request->image2) ? $this->uploadImage($request, 'image2', NULL, '/uploads/product-images') : null;
+        $product->image3 = !empty($request->image3) ? $this->uploadImage($request, 'image3', NULL, '/uploads/product-images') : null;
+        $product->image4 = !empty($request->image4) ? $this->uploadImage($request, 'image4', NULL, '/uploads/product-images') : null;
 
         $product->save();
 
@@ -97,10 +97,10 @@ class ProductController extends Controller
     public function update(ProductUpdateRequest $request, string $id)
     {
         $product = Product::findOrFail($id);
-        $imagePath = $this->uploadImage($request, 'image', $product->image);
-        $imagePath2 = $this->uploadImage($request, 'image2', $product->image2);
-        $imagePath3 = $this->uploadImage($request, 'image3', $product->image3);
-        $imagePath4 = $this->uploadImage($request, 'image4', $product->image4);
+        $imagePath = $this->uploadImage($request, 'image', $product->image, '/uploads/product-images');
+        $imagePath2 = $this->uploadImage($request, 'image2', $product->image2, '/uploads/product-images');
+        $imagePath3 = $this->uploadImage($request, 'image3', $product->image3, '/uploads/product-images');
+        $imagePath4 = $this->uploadImage($request, 'image4', $product->image4, '/uploads/product-images');
 
         $product->update([
             'name' => $request->name,

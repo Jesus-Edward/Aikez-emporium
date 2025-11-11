@@ -6491,12 +6491,13 @@ PreLoader CSS End
     cursor: pointer;
 }
 
-.fp_dash_personal_info h4 a span {
-    color: var(--colorBlack) !important;
-}
+/* .fp_dash_personal_info h4 a span {
+    color: white !important;
+} */
 
 .fp_dash_personal_info h4 a:hover {
-    background: #010f1c;
+    background: orange !important;
+    color: #fff !important;
 }
 
 .fp_dash_personal_info h4 a .cancel {
