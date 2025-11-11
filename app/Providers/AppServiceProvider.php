@@ -3,7 +3,12 @@
 namespace App\Providers;
 
 use App\Models\GeneralSetting;
+use Illuminate\Mail\Transport\ResendTransport;
+use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\ServiceProvider;
+use Resend;
+use RuntimeException;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -20,34 +25,31 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        // $keys = ['pusher_app_id', 'pusher_app_key', 'pusher_app_secret_key', 'pusher_cluster'];
-        // $mailKeys = [
-        //     'received_mail_address',
-        //     'mail_from_address',
-        //     'mail_password',
-        //     'mail_username',
-        //     'mail_host',
-        //     'mail_encryption',
-        //     'mail_port',
-        //     'mail_mailer'
-        // ];
+        Mail::extend('resend', function(array $config = []) {
+            $appKey = $config['key'] ?? $config['api_key'] ?? config('services.resend.key') ?? env('RESEND_API_KEY');
+            if (!$appKey) {
+                throw new RuntimeException('Resend API key not provided for resend mailer');
+            }
 
-        // $pusherConf = GeneralSetting::whereIn('key', $keys)->pluck('value', 'key');
-        // $mailConf = GeneralSetting::whereIn('key', $mailKeys)->pluck('value', 'key');
+            $resendClient = Resend::client($appKey);
+            return new ResendTransport($resendClient);
+        });
+        $mailKeys = [
+            'mail_from_address',
+            'mail_mailer',
+            'resend_api_key'
+        ];
 
-        // config(['broadcasting.connections.pusher.key' => $pusherConf['pusher_app_key']]);
-        // config(['broadcasting.connections.pusher.secret' => $pusherConf['pusher_app_secret_key']]);
-        // config(['broadcasting.connections.pusher.app_id' => $pusherConf['pusher_app_id']]);
-        // config(['broadcasting.connections.pusher.options.cluster' => $pusherConf['pusher_cluster']]);
+        $mailConf = GeneralSetting::whereIn('key', $mailKeys)->pluck('value', 'key');
 
-        // config(['mail.default' => $mailConf['mail_mailer']]);
-        // // config('mail.from.address', $mailConf['mail_from_address']);
-        // config('mail.mailers.smtp.transport', $mailConf['mail_mailer']);
-        // config('mail.mailers.smtp.host', $mailConf['mail_host']);
-        // // config('mail.mailers.smtp.port', (int) $mailConf['mail_port']);
-        // config('mail.mailers.smtp.encryption', $mailConf['mail_encryption']);
-        // config('mail.mailers.smtp.username', $mailConf['mail_username']);
-        // config('mail.mailers.smtp.password', $mailConf['mail_password']);
+        Config::set('mail.from', ['address' => $mailConf['mail_from_address']]);
+        Config::set(['mail.default' => $mailConf['mail_mailer']]);
+        Config::set('mail.mailers.resend.key', $mailConf['resend_api_key']);
+        app()->forgetInstance('mail.manager');
+        app()->forgetInstance('mailer');
+        app()->bind('mailer', function($app) {
+            return $app->make('mail.manager')->mailer();
+        });
     }
 
 }

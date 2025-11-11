@@ -23,13 +23,14 @@ class MailSettingsUpdateRequest extends FormRequest
     {
         return [
             'mail_mailer' => ['required', 'string', 'max:255'],
-            'mail_port' => ['required', 'integer'],
-            'mail_encryption' => ['required', 'string', 'max:20'],
-            'mail_host' => ['required', 'string', 'max:50'],
-            'mail_username' => ['required', 'max:255'],
-            'mail_password' => ['required', 'max:255'],
+            'resend_api_key' => ['required', 'string', 'max:255'],
             'mail_from_address' => ['required', 'email', 'max:255'],
-            'received_mail_address' => ['required', 'email', 'max:255']
+            // 'mail_port' => ['required', 'integer'],
+            // 'mail_encryption' => ['required', 'string', 'max:20'],
+            // 'mail_host' => ['required', 'string', 'max:50'],
+            // 'mail_username' => ['required', 'max:255'],
+            // 'mail_password' => ['required', 'max:255'],
+            // 'received_mail_address' => ['required', 'email', 'max:255'],
         ];
     }
 }

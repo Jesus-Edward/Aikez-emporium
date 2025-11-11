@@ -25,7 +25,7 @@
                                 @csrf
                                 @method('PUT')
                                 <div class="row">
-                                    <div class="col-md-6 col-sm-12 mb-2">
+                                    <div class="col-md-4 col-sm-12 mb-2">
                                         <div class="form-group">
                                             <label for="" class="form-label">Mail Mailer</label>
                                             <input type="text" name="mail_mailer"
@@ -35,7 +35,18 @@
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
                                     </div>
-                                    <div class="col-md-6 col-sm-12 mb-2">
+
+                                    <div class="col-md-4 col-sm-12 mb-2">
+                                        <div class="form-group">
+                                            <label for="" class="form-label">Resend API Key</label>
+                                            <input type="text" name="resend_api_key"
+                                                value="{{ config('settings.resend_api_key') }}" class="form-control">
+                                        </div>
+                                        @error('resend_api_key')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
+                                    </div>
+                                    {{-- <div class="col-md-6 col-sm-12 mb-2">
                                         <div class="form-group">
                                             <label for="" class="form-label">Mail Host</label>
                                             <input type="text" name="mail_host"
@@ -44,8 +55,8 @@
                                         @error('mail_host')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
-                                    </div>
-                                    <div class="col-md-6 col-sm-12 mb-2">
+                                    </div> --}}
+                                    {{-- <div class="col-md-6 col-sm-12 mb-2">
                                         <div class="form-group">
                                             <label for="" class="form-label">Mail Port</label>
                                             <input type="text" name="mail_port"
@@ -54,8 +65,8 @@
                                         @error('mail_port')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
-                                    </div>
-                                    <div class="col-md-6 col-sm-12 mb-2">
+                                    </div> --}}
+                                    {{-- <div class="col-md-6 col-sm-12 mb-2">
                                         <div class="form-group">
                                             <label for="" class="form-label">Mail Encryption</label>
                                             <input type="text" name="mail_encryption"
@@ -64,8 +75,8 @@
                                         @error('mail_encryption')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
-                                    </div>
-                                    <div class="col-md-6 col-sm-12 mb-2">
+                                    </div> --}}
+                                    {{-- <div class="col-md-6 col-sm-12 mb-2">
                                         <div class="form-group">
                                             <label for="" class="form-label">Mail Username</label>
                                             <input type="text" name="mail_username"
@@ -74,8 +85,8 @@
                                         @error('mail_username')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
-                                    </div>
-                                    <div class="col-md-6 col-sm-12 mb-2">
+                                    </div> --}}
+                                    {{-- <div class="col-md-6 col-sm-12 mb-2">
                                         <div class="form-group">
                                             <label for="" class="form-label">Mail Password</label>
                                             <input type="text" name="mail_password"
@@ -84,9 +95,9 @@
                                         @error('mail_password')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
-                                    </div>
+                                    </div> --}}
 
-                                    <div class="col-md-6 col-sm-12 mb-2">
+                                    <div class="col-md-4 col-sm-12 mb-2">
                                         <div class="form-group">
                                             <label for="" class="form-label">Mail From Address</label>
                                             <input type="text" name="mail_from_address"
@@ -97,7 +108,7 @@
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
                                     </div>
-                                    <div class="col-md-6 col-sm-12 mb-2">
+                                    {{-- <div class="col-md-6 col-sm-12 mb-2">
                                         <div class="form-group">
                                             <label for="" class="form-label">Mail Received Address</label>
                                             <input type="text" name="received_mail_address"
@@ -107,7 +118,7 @@
                                         @error('received_mail_address')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
-                                    </div>
+                                    </div> --}}
                                 </div>
                                 <div style="display: flex; justify-content:flex-end">
                                     <button class="btn btn-primary">Save</button>

@@ -79,7 +79,7 @@
 													<input type="password" id="loginPassword" name="password" class="form-control border-end-0" id="" value="" placeholder="Enter Password">
 												</div>
 
-                                                <div aria-hidden="true" style="position: absolute;bottom:10px;right:30px">
+                                                <div aria-hidden="true" style="position: absolute;bottom:10px;right:30px;z-index:100">
                                                     <i class="fas fa-eye-slash" id="show-and-hide"></i>
                                                 </div>
 											</div>
